@@ -12,7 +12,7 @@
         <div class="name-row">
             <img src="../icons/101Roze/2-jpg (1).jpg" class="circle-image">
             <div class="user-inf-col">
-                <div class="name-text" id="username">Имя</div> 
+                <div class="name-text" id="username"> 
                 <span class="profile-link" id="openProfileBtn">Показать профиль</span>
                 <div class="bonus-text">5.0 | 1 отзыв</div>
                 <div class="bonus-row">
@@ -129,23 +129,15 @@
         </script>
        
        <script>
-        if (window.Telegram && window.Telegram.WebApp) {
-            // Инициализируем Web App
-            Telegram.WebApp.ready();
-    
-            // Получаем данные о пользователе
-            const user = Telegram.WebApp.initDataUnsafe.user;
-            
-            console.log(user); // Выводим данные для проверки
-            
-            if (user) {
-                document.getElementById("username").textContent = user.username || `${user.first_name} ${user.last_name}`;
-            } else {
-                document.getElementById("username").textContent = "Неизвестный пользователь";
-            }
-        } else {
-            console.error("Telegram WebApp API не доступен");
-        }
+            let tg = window.Telegram.WebApp;
+            let username = document.getElementById("username");
+
+            let p = document.createElement("p");
+
+            p.innerText = `${tg.initDataUnsafe.user.first_name}
+            ${tg.initDataUnsafe.user.last_name}`;
+
+            username.appendChild(p);
     </script>
     
     <div class="bottom-menu">

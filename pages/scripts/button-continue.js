@@ -1,6 +1,8 @@
 window.Telegram.WebApp.ready();
+
 document.getElementById('continue-button').addEventListener('click', async () => {
     e.preventDefault();
+    continueButton.textContent = "Loading..."
     console.log(window.Telegram.WebApp.initDataUnsafe.user.id);
             // Получаем данные из полей формы
     const userId = window.Telegram.WebApp.initDataUnsafe.user.id;
@@ -43,5 +45,7 @@ document.getElementById('continue-button').addEventListener('click', async () =>
     } catch (error) {
         console.error('Ошибка:', error);
         alert('Произошла ошибка');
+    } finally {
+        continueButton.textContent = "Success"; // Восстанавливаем текст кнопки после завершения
     }
 });
