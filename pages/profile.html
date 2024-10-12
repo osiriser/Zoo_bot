@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page 1</title>
     <link rel="stylesheet" href="../css_style/profile.css"> <!-- Подключение стилей -->
-
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="name-cont">
         <div class="name-row">
             <img src="../icons/101Roze/2-jpg (1).jpg" class="circle-image">
             <div class="user-inf-col">
-                <div class="name-text">Имя</div> 
+                <div class="name-text" id="username">Имя</div> 
                 <span class="profile-link" id="openProfileBtn">Показать профиль</span>
                 <div class="bonus-text">5.0 | 1 отзыв</div>
                 <div class="bonus-row">
@@ -127,7 +127,22 @@
             }
         }
         </script>
-        
+       
+       <script>
+        // Инициализируем Web App
+        Telegram.WebApp.ready();
+
+        // Получаем данные о пользователе из объекта Telegram WebApp
+        const user = Telegram.WebApp.initDataUnsafe.user;
+
+        // Проверяем, что данные пользователя есть
+        if (user) {
+            // Вставляем имя пользователя в HTML элемент
+            document.getElementById("username").textContent = user.username || `${user.first_name} ${user.last_name}`;
+        } else {
+            document.getElementById("username").textContent = "Неизвестный пользователь";
+        }
+    </script>
     
     <div class="bottom-menu">
         <a href="../index.html"><img src="../icons/home.png" class="menu-icon" alt="Home"></a>

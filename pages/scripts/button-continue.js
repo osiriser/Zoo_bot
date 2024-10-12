@@ -1,5 +1,5 @@
 window.Telegram.WebApp.ready();
-document.getElementById('continue-button').addEventListener('click', async (e) => {
+document.getElementById('continue-button').addEventListener('click', async () => {
     e.preventDefault();
     console.log(window.Telegram.WebApp.initDataUnsafe.user.id);
             // Получаем данные из полей формы
