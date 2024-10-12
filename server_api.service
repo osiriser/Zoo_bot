@@ -1,0 +1,10 @@
+[Unit]
+Description=Server api
+After=multi-user.target
+[Service]
+ExecStart=/usr/bin/python3 /home/developer/Zoo_bot/server_api.py
+Restart=always
+Type=simple
+WorkingDirectory=/home/developer/Zoo_bot
+[Install]
+WantedBy=multi-user.target

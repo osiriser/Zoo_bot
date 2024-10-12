@@ -1,0 +1,184 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 10px; */
+    align-items: center; /* Центрирование элементов по вертикали */
+}
+
+/* Стили для левого блока с текстом location */
+.location {
+    color: #333;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+s
+/* Стили для контейнера с бонусами */
+.bonus-container {
+    display: flex;
+    align-items: center; /* Центрирование элементов по вертикали */
+    gap: 10px;           /* Расстояние между текстом и фиолетовым контейнером */
+}
+
+/* Стили для текста "Бонусы" */
+.bonus-text {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Стили для фиолетового контейнера */
+.bonus-box {
+    display: flex;
+    align-items: center;
+    background-color: #800080;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* Стили для иконки внутри фиолетового контейнера */
+.bonus-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Стили для значения бонусов */
+.bonus-value {
+    font-weight: bold;
+}
+
+.city {
+    font-size: 14px;
+    color: #666; /* Более светлый цвет для выделения */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Стили для текста "Москва, Снежная 19" */
+.address {
+    font-size: 16px;
+    color: #333;
+}
+
+
+.horizont-line {
+    margin-top: 15px;
+    width: 570px;
+    border-top: 10px solid #b910ab;
+    box-sizing: border-box;
+  }
+  
+
+.task-row{
+    display: flex;
+    justify-content: center; /* Центрируем текст по горизонтали */
+    align-items: center;     /* Центрируем текст по вертикали */
+    width: 100%;
+    padding: 15px 10px; /* Отступы */
+    text-align: center; /* Текст по центру */
+}
+    
+
+    
+.center-text {
+    left: 50%;
+    font-size: 45px;
+    text-align: center; /* Горизонтальное выравнивание текста по центру */
+}
+
+
+.about-row{
+    display: flex;
+    justify-content: center; /* Центрируем текст по горизонтали */
+    align-items: center;     
+    width: 100%;
+    padding: 15px 10px; /* Отступы */
+    text-align: center; 
+}
+    
+
+
+    
+.center-about-text {
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    text-align: center; /* Горизонтальное выравнивание текста по центру */
+}
+
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Расстояние между кнопками */
+    margin-top: 20px;
+
+}
+
+.task-button {
+    background-color: #800080; /* Черный цвет фона */
+    color: white; /* Белый цвет текста */
+    border: 2px solid #ffffff; /* Зеленая рамка */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 15px 30px; /* Отступы внутри кнопки */
+    font-size: 18px; /* Размер текста */
+    width: 80%; /* Ширина кнопки */
+    max-width: 400px; /* Максимальная ширина */
+    text-align: center; /* Текст по центру */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    transition: transform 0.3s, background-color 0.3s; /* Анимация */
+    border-radius: 15px;
+}
+
+
+.task-button:hover {
+    background-color: #751111; /* Изменение цвета фона при наведении */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    width: 100%;
+    height: 20px;
+    margin: 20px 0;
+    margin-top: 40px;
+}
+
+.progress {
+    background-color: #800080;
+    height: 100%;
+    width: 50%; /* Можно динамически менять ширину в зависимости от прогресса */
+    border-radius: 10px;
+}
+
+
+.bottom-menu {
+    position: fixed; /* Меню фиксируется внизу экрана */
+    bottom: 0; /* Расположено внизу */
+    left: 0;
+    width: 100%; /* Меню занимает всю ширину экрана */
+    background-color: #ffffff; /* Фон меню (можно изменить) */
+    display: flex; /* Используем flex для равномерного расположения иконок */
+    justify-content: space-around; /* Распределение иконок по ширине меню */
+    padding: 10px 0; /* Вертикальные отступы */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
+    z-index: 1000; /* Задаем высокий z-index, чтобы меню было всегда сверху */
+}
+
+.menu-icon {
+    width: 25px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.menu-icon-cart {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.tasks-icon {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}

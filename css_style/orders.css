@@ -1,0 +1,107 @@
+.bottom-menu {
+    position: fixed; /* Меню фиксируется внизу экрана */
+    bottom: 0; /* Расположено внизу */
+    left: 0;
+    width: 100%; /* Меню занимает всю ширину экрана */
+    background-color: #ffffff; /* Фон меню (можно изменить) */
+    display: flex; /* Используем flex для равномерного расположения иконок */
+    justify-content: space-around; /* Распределение иконок по ширине меню */
+    padding: 10px 0; /* Вертикальные отступы */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
+    z-index: 1000; /* Задаем высокий z-index, чтобы меню было всегда сверху */
+}
+
+.menu-icon {
+    width: 25px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.menu-icon-cart {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+
+a {
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+}
+
+.order-cont{
+    width: 95%;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Более сильная и размытая тень */
+}
+
+.order-row{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    
+}
+
+.img{
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 20%;
+    height: 10%;
+}
+
+.scroll-container-shop{
+    display: flex;
+    overflow-x: auto;  /* Добавляем горизонтальную прокрутку */
+    gap: 10px;         /* Расстояние между элементами */
+    padding: 10px 0; 
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /* Убираем полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+  /* Отступы сверху и снизу */
+}
+
+.inf-column{
+    display: grid;
+    gap: 10px;
+}
+
+.img-inrow{
+    border-radius: 10px;
+    width: 100%;
+}
+
+.img-name-row{
+    display: grid;
+    gap: 10px;
+    height: 100%;
+    width: 33%;
+}
+
+.img-cont{
+    position: relative;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    width: 100%; 
+}
+
+.price-tag {
+
+    white-space: nowrap;
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 10px; /* Расположить 10px от нижней части изображения */
+    left: 50%; /* Центрирование по горизонтали относительно контейнера */
+    transform: translateX(-50%);
+    background-color: #7d1469; /* Фиолетовый фон */
+    color: #fff; /* Белый текст */
+    padding: 3px 5px; /* Внутренние отступы для блока с ценой */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 12px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    text-align: center; /* Центрирование текста внутри блока */
+    opacity: 0.8;
+}
+
+.row-img-name{
+    display: flex;
+    gap: 10px;
+}

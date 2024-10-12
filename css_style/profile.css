@@ -1,0 +1,240 @@
+.name-cont{
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    /* padding: 20px; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.name-row{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+}
+
+.bonus-row{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Центрирование элементов по вертикали */
+
+}
+
+.window-row-up{
+    padding-top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Центрирование элементов по вертикали */
+
+}
+
+
+.my-bonus-text {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bonus-container {
+    display: flex;
+    align-items: center; /* Центрирование элементов по вертикали */
+}
+
+.bonus-box{
+    display: flex;
+    align-items: center;
+    background-color: #800080;
+    color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+
+.bonus-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+
+.user-inf-col{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+    padding-bottom: 0; /* Убираем внутренние отступы у родителя */
+    margin-bottom: 0; /* Убираем внешние отступы у родителя */
+    padding: 0px;
+}
+
+
+.input-col{
+    display: grid;
+    gap: 10px;
+}
+
+.save-button{
+    background: #7d0877;
+    width: auto;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block; /* Убедитесь, что кнопка ведет себя как блочный элемент */
+
+
+}
+
+.name-text{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.circle-image{
+    border-radius: 50%;
+    width: 20%;
+    /* padding-left: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px; */
+}
+
+.bottom-menu {
+    position: fixed; /* Меню фиксируется внизу экрана */
+    bottom: 0; /* Расположено внизу */
+    left: 0;
+    width: 100%; /* Меню занимает всю ширину экрана */
+    background-color: #ffffff; /* Фон меню (можно изменить) */
+    display: flex; /* Используем flex для равномерного расположения иконок */
+    justify-content: space-around; /* Распределение иконок по ширине меню */
+    padding: 10px 0; /* Вертикальные отступы */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
+    z-index: 1000; /* Задаем высокий z-index, чтобы меню было всегда сверху */
+}
+
+.menu-icon {
+    width: 25px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.menu-icon-cart {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+/* Синий текст для ссылки */
+.profile-link {
+    color: blue;
+    cursor: pointer;
+}
+
+.bonus-text{
+    color: #0ea60c;
+    cursor: pointer;
+}
+
+
+/* Скрываем модальное окно по умолчанию */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); /* Полупрозрачный черный фон */
+}
+
+/* Стиль содержания модального окна */
+.modal-content {
+    gap: 10pz;
+    background-color: white;
+    margin: 15% auto; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%; /* Ширина модального окна */
+}
+
+/* Кнопка закрытия модального окна */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    padding-left: 5px;
+    height: 40px;
+    width: 100%; /* Ширина на всю строку */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.text-two-container{
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.text-two-container-t{
+    text-align: left;
+    padding-left: 10px;
+}
+
+.refferal-code-text {
+    margin: 35px; 
+    display: flex;
+    width: 100%;
+    font-size: 35px;
+    justify-content: center;
+}
+
+.copy-container {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.referral-code {
+    display: flex;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.copy-button {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.copy-button:hover {
+    background-color: #45a049;
+}
+
+.copy-success {
+    margin-left: 10px;
+    color: green;
+    display: none;
+}

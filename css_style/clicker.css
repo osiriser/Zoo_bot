@@ -1,0 +1,129 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 10px; */
+    align-items: center; /* Центрирование элементов по вертикали */
+}
+
+/* Стили для левого блока с текстом location */
+.location {
+    color: #333;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Стили для контейнера с бонусами */
+.bonus-container {
+    display: flex;
+    align-items: center; /* Центрирование элементов по вертикали */
+    gap: 10px;           /* Расстояние между текстом и фиолетовым контейнером */
+}
+
+/* Стили для текста "Бонусы" */
+.bonus-text {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Стили для фиолетового контейнера */
+.bonus-box {
+    display: flex;
+    align-items: center;
+    background-color: #800080;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* Стили для иконки внутри фиолетового контейнера */
+.bonus-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Стили для значения бонусов */
+.bonus-value {
+    font-weight: bold;
+}
+
+.city {
+    font-size: 14px;
+    color: #666; /* Более светлый цвет для выделения */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Стили для текста "Москва, Снежная 19" */
+.address {
+    font-size: 16px;
+    color: #333;
+}
+
+
+.horizont-line {
+    margin-top: 15px;
+    width: 570px;
+    border-top: 10px solid #b910ab;
+    box-sizing: border-box;
+  }
+  
+
+
+.points-section {
+    margin-top: 20px;
+}
+
+.points-section h1 {
+    text-align: center;
+    font-size: 40px;
+    color: #ffcc00;
+}
+
+.clicker-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.clicker-container img {
+    width: 300px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.clicker-text {
+    text-align: center;
+    font-size: 30px; 
+    color: #ff00ff;
+    font-weight: bold;
+}
+
+.bottom-menu {
+    position: fixed; /* Меню фиксируется внизу экрана */
+    bottom: 0; /* Расположено внизу */
+    left: 0;
+    width: 100%; /* Меню занимает всю ширину экрана */
+    background-color: #ffffff; /* Фон меню (можно изменить) */
+    display: flex; /* Используем flex для равномерного расположения иконок */
+    justify-content: space-around; /* Распределение иконок по ширине меню */
+    padding: 10px 0; /* Вертикальные отступы */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
+    z-index: 1000; /* Задаем высокий z-index, чтобы меню было всегда сверху */
+}
+
+.menu-icon {
+    width: 25px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.menu-icon-cart {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.tasks-icon {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}

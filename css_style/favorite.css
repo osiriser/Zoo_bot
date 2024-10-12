@@ -1,0 +1,290 @@
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #cccccc;
+}
+
+.tab-link {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #f0f0f0;
+    outline: none;
+    font-size: 16px;
+}
+
+.tab-link.active {
+    border-bottom: 2px solid #7d1469;
+    color: #7d1469;
+}
+
+.bottom-menu {
+    position: fixed; /* Меню фиксируется внизу экрана */
+    bottom: 0; /* Расположено внизу */
+    left: 0;
+    width: 100%; /* Меню занимает всю ширину экрана */
+    background-color: #ffffff; /* Фон меню (можно изменить) */
+    display: flex; /* Используем flex для равномерного расположения иконок */
+    justify-content: space-around; /* Распределение иконок по ширине меню */
+    padding: 10px 0; /* Вертикальные отступы */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
+    z-index: 1000; /* Задаем высокий z-index, чтобы меню было всегда сверху */
+}
+
+.menu-icon {
+    width: 25px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.menu-icon-cart {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+
+.flow-row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 карточки в ряд */
+    gap: 20px; /* Расстояние между карточками */
+}
+
+.flow-card{
+    display: grid;
+    width: 100%;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    height: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-flow-card{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 10px; */
+    align-items: center; /* Центрирование элементов по вертикали */
+}
+
+.checkmark-icon {
+    width: 20px; /* Ширина изображения галочки */
+    height: 20px; /* Высота изображения галочки */
+}
+
+.name-col-shop{
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 0px;  /* Центрирование по горизонтали */
+    padding-left: 10px;
+    display: grid;
+    gap: 0px;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Более сильная и размытая тень */
+
+}
+
+.recommended-shops{
+    padding-left: 10px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.avatar-icon{
+    width: 80px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name-col{
+    display: grid;
+    gap: 0px;
+    padding: 0;
+
+}
+
+.name-col-shop{
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 0px;  /* Центрирование по горизонтали */
+    padding-left: 10px;
+    display: grid;
+    gap: 0px;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Более сильная и размытая тень */
+
+}
+
+.shop-card-text{
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.raiting-text{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.filter-row{
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    gap: 10px; 
+}
+
+.container-filter{
+    background-color: #7d1469;
+    border-radius: 10px;
+    padding: 5px 5px;
+}
+
+.bonus-text-shop{
+    white-space: nowrap;
+    color: #ffffff;
+    text-align: center;
+    font-size: 13px;
+
+}
+
+.container-filter-black{
+    background-color: #f6f6f6;
+    border-radius: 10px;
+
+}
+
+.bonus-text-shop-black{
+    white-space: nowrap;
+    color: #000000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.scroll-container-shop{
+    display: flex;
+    overflow-x: auto;  /* Добавляем горизонтальную прокрутку */
+    gap: 10px;         /* Расстояние между элементами */
+    padding: 10px 0; 
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /* Убираем полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+  /* Отступы сверху и снизу */
+}
+
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;  /* Добавляем горизонтальную прокрутку */
+    gap: 10px;         /* Расстояние между элементами */
+    padding: 10px 0; 
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /* Убираем полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+  /* Отступы сверху и снизу */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;  /* Убираем полосы прокрутки в Chrome, Safari, Opera */
+}
+
+.scroll-item {
+    background-color: #7d1469; /* Цвет фона */
+    padding: 5px 5px;        /* Внутренние отступы */
+    border-radius: 20px;       /* Скругленные края */
+    white-space: nowrap;       /* Запрещаем перенос текста */
+    font-size: 14px;           /* Размер текста */
+    cursor: pointer;           /* Курсор при наведении */
+}
+
+.scroll-item-cel{
+    background-color: #dbc51e; /* Цвет фона */
+    padding: 5px 5px;        /* Внутренние отступы */
+    border-radius: 20px;       /* Скругленные края */
+    white-space: nowrap;       /* Запрещаем перенос текста */
+    font-size: 14px;           /* Размер текста */
+    cursor: pointer;           /* Курсор при наведении */
+}
+
+.images-row {
+    display: grid;
+    padding-bottom: 0px;
+    grid-template-columns: repeat(3, 1fr); /* 3 равные колонки */
+    gap: 4px; /* Расстояние между элементами - 1px */
+    padding-bottom: 0; /* Убираем внутренние отступы у родителя */
+    margin-bottom: 0; /* Убираем внешние отступы у родителя */
+}
+
+.images-shop-container {
+    position: relative; /* Относительное позиционирование для контейнера */
+
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    width: 100%; /* Контейнер занимает всю ширину колонки */
+}
+
+.image-shop {
+    width: 100%;   /* Изображение заполняет весь контейнер по ширине */
+    height: auto;  /* Сохраняем пропорции изображения */
+    border-radius: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px; /* Скругляем углы */
+}
+
+.price-tag {
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 10px; /* Расположить 10px от нижней части изображения */
+    left: 50%; /* Центрирование по горизонтали относительно контейнера */
+    transform: translateX(-50%);
+    background-color: #7d1469; /* Фиолетовый фон */
+    color: #fff; /* Белый текст */
+    padding: 5px 10px; /* Внутренние отступы для блока с ценой */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 14px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    text-align: center; /* Центрирование текста внутри блока */
+}
+
+.сheck-mark{
+    width: 10px;
+    height: 10px;
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 10px; /* Расположить 10px от нижней части изображения */
+    left: 50%; /* Центрирование по горизонтали относительно контейнера */
+    background-color: #7d1469; /* Фиолетовый фон */
+    color: #fff; /* Белый текст */
+    padding: 5px 10px; /* Внутренние отступы для блока с ценой */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 14px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    text-align: center; /* Центрирование текста внутри блока */
+}
+
+.checkmark-container {
+    position: absolute; /* Абсолютное позиционирование для галочки */
+    top: 5px; /* Расположим галочку 10px сверху */
+    left: 10px; /* Расположим галочку 10px от правого края */
+    background-color: #c0c0c0; /* Серый фон */
+    padding: 1px; /* Внутренние отступы */
+    border-radius: 10px; /* Круглый фон */
+}
+
+.checkmark-icon {
+    width: 20px; /* Ширина изображения галочки */
+    height: 20px; /* Высота изображения галочки */
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <link rel="stylesheet" href="../css_style/cart_two.css"> <!-- Подключение стилей -->
+</head>
+<body>
+    <div style="text-align: center; align-items: center; padding-bottom: 10px; padding-top: 5px;">Оформление заказа</div>
+    <span style="text-align: center;">Выберите тип доставки</span>
+    <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
+    <div class="header-row">
+        <div class="delivery-container">
+            <div style="font-weight: bold; font-size: 20px; padding-bottom: 5px;">Обычная</div>
+            <div style="font-size: 18px;">4 часовой интервал</div>
+            <div style="font-size: 18px; padding-bottom: 4px;">От 30 до 240 минут</div>
+            <div class="sum-cont-row">
+                <div style="font-weight: bold; font-size: 20px;">600 ₽</div>
+                <div style="font-size: 14px;">В пределах МКАД</div>
+            </div>
+        </div>
+        <div class="delivery-container">
+            <div style="font-weight: bold; font-size: 20px; padding-bottom: 5px;">Экспресс</div>
+            <div style="font-size: 18px;">2 часовой интервал</div>
+            <div style="font-size: 18px; padding-bottom: 4px;">от 30 до 120 минут</div>
+            <div class="sum-cont-row">
+                <div style="font-weight: bold; font-size: 20px;">600 ₽</div>
+                <div style="font-size: 14px;">В пределах МКАД</div>
+            </div>
+        </div>
+        <div class="delivery-container">
+            <div style="font-weight: bold; font-size: 20px; padding-bottom: 5px;">Точное время</div>
+            <div style="font-size: 18px;">30 минутный интервал</div>
+            <div style="font-size: 18px; padding-bottom: 4px;">От 30 до 240 минут</div>
+            <div class="sum-cont-row">
+                <div style="font-weight: bold; font-size: 20px;">600 ₽</div>
+                <div style="font-size: 14px;">В пределах МКАД</div>
+            </div>
+        </div>
+
+    </div>
+    <div style="padding-top: 5px;">Чаевые курьеру</div>
+    <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
+    <div class="scroll-container-shop">
+        <div class="scroll-item">
+            <div 
+            class="bonus-text-shop"
+            >0 ₽</div>
+        </div>
+        <div class="scroll-item">
+            <div class="bonus-text-shop">
+                50 ₽
+            </div> 
+        </div>
+        <div class="scroll-item">
+            <div class="bonus-text-shop">
+                100 ₽
+            </div>
+        </div>
+        <div class="scroll-item">
+            <div class="bonus-text-shop">
+                200 ₽
+            </div>
+        </div>
+        <div class="scroll-item">
+            <div class="bonus-text-shop">
+                Другая сумма
+            </div>
+        </div>
+
+    </div>
+    <div style="padding-top: 10px;">Client</div>
+    <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
+    <!-- Переключатель -->
+    <!-- <div class="switch-row">
+        <label for="self-pickup" class="label">Получу сам</label>
+        <input type="checkbox" id="self-pickup" class="switch">
+    </div> -->
+
+    <!-- Поля ввода -->
+    <div class="input-container">
+        <input type="text" placeholder="Contact Name*" class="input-field">
+        <input type="text" placeholder="Mobile number*" class="input-field">
+    </div>
+
+    <!-- Адрес -->
+    <div class="address-section">
+        <label class="label">Address</label>
+        <hr style="border: 1px solid rgb(211, 202, 202); width: 98%; margin-bottom: 10px;">
+        <input type="text" placeholder="Street, house/apartment/unit*" class="input-field">
+
+        <!-- Подъезд и домофон в строку -->
+        <div class="two-columns">
+            <input type="text" placeholder="Country*" class="input-field small">
+            <input type="text" placeholder="Region*" class="input-field small">
+            <input type="text" placeholder="Zip code*" class="input-field small">
+        </div>
+    </div>
+    <!-- <div class="switch-row">
+        <label for="self-pickup" class="label">Узнать адрес получателя</label>
+        <input type="checkbox" id="self-pickup" class="switch">
+    </div> -->
+    <div style="padding-top: 10px;">Extra info</div>
+    <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
+    <input type="text" placeholder="Add free text if needed, eg: dont ring the doorbell, leave by the door, etc." class="input-field">
+    <!-- <div class="save-button">Применить</div> -->
+    <div class="switch-row">
+        <div>Бонусы</div>
+        <div class="bonus-row">
+            <div>У вас</div>
+            <div class="bonus-container">
+                <div class="bonus-box">                <!-- Фиолетовый контейнер -->
+                    <img src="../icons/ruble.png" alt="Бонусы" class="bonus-icon">
+                    <span class="bonus-value">0</span> <!-- Значение бонусов -->
+                </div>
+            </div>
+            <div>= 0 ₽</div>
+
+        </div>
+    </div>
+    <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
+
+    <div class="switch-row">
+        <label for="self-pickup" class="label">Получу сам</label>
+        <input type="checkbox" id="self-pickup" class="switch">
+    </div>
+    <div class="sum-row">
+        <span style="font-size: 24px; font-weight: bold;">Итого</span>
+        <span style="font-size: 24px; font-weight: bold;">3000 ₽</span>
+    </div>
+
+    <div class="sum-row">
+        <span style="font-size: 20px">Сумма заказа</span>
+        <span style="font-size: 20px">2 390 ₽</span>
+    </div>
+    <div class="sum-row">
+        <span style="font-size: 20px">Сервисный сбор</span>
+        <span style="font-size: 20px">35 ₽</span>
+    </div>
+    <div class="sum-row">
+        <span style="font-size: 20px;">Будет начислено</span>
+        <div class="bonus-container">
+            <div class="bonus-box">                <!-- Фиолетовый контейнер -->
+                <img src="../icons/ruble.png" alt="Бонусы" class="bonus-icon">
+                <span class="bonus-value">0</span> <!-- Значение бонусов -->
+            </div>
+        </div>
+    </div>
+    <div class="sum-row">
+        <a href="profile.html" class="continue-button-class" id="continue-button">
+            Continue
+        </a>
+
+    </div>
+    
+    <script src="scripts/button-continue.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</body>
+</html>

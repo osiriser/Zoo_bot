@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <link rel="stylesheet" href="../css_style/profile.css"> <!-- Подключение стилей -->
+
+</head>
+<body>
+    <div class="name-cont">
+        <div class="name-row">
+            <img src="../icons/101Roze/2-jpg (1).jpg" class="circle-image">
+            <div class="user-inf-col">
+                <div class="name-text">Имя</div> 
+                <span class="profile-link" id="openProfileBtn">Показать профиль</span>
+                <div class="bonus-text">5.0 | 1 отзыв</div>
+                <div class="bonus-row">
+                    <div class="my-bonus-text">Мои бонусы</div>
+                    <div class="bonus-container">
+                        <div class="bonus-box">                <!-- Фиолетовый контейнер -->
+                            <img src="../icons/ruble.png" class="bonus-icon">
+                            <span class="bonus-value">0</span> <!-- Значение бонусов -->
+                        </div>
+                    </div>
+            
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="name-cont">
+        <div class="user-inf-col">
+            <div class="text-two-container">Настройка уведомлений</div>
+            <hr style="border: 1px solid rgb(162, 153, 153); width: 90%; margin: 20px auto;">
+            <div class="text-two-container-t">Правовые докуметы</div>
+            <hr style="border: 1px solid rgb(146, 141, 141); width: 90%; margin: 20px auto;">
+        </div>
+    
+    </div>
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <div class="window-row-up">
+                <h2>Профиль пользователя</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="input-col">
+                <label for="name">ФИО</label>
+                <input type="text" id="name" name="name" placeholder="ФИО" >
+                <label for="name">Телефон</label>
+                <input type="text" id="name" name="name" placeholder="Телефон" >
+                <label for="name">E-mail</label>
+                <input type="text" id="name" name="name" placeholder="E-mail" >
+                <label for="name">Дата рождения</label>
+                <input type="text" id="name" name="name" placeholder="Дата рождения" >
+                <div class="save-button">
+                    Сохранить
+                </div>
+        
+            </div>
+            
+
+        </div>
+        
+    </div>
+    <div class="refferal-code-text">Your refferal code</div>
+    <div class="copy-container">
+        <!-- Поле для показа реферального кода -->
+        <span id="referralCode" class="referral-code">REF123456</span>
+        
+        <!-- Кнопка для копирования -->
+        <button class="copy-button" onclick="copyReferralCode()">Copy</button>
+        
+        <!-- Сообщение об успешном копировании -->
+        <span id="copySuccess" class="copy-success">Code has copied</span>
+    </div>
+
+    <script>
+        // Функция для копирования реферального кода
+        function copyReferralCode() {
+            // Получаем элемент с реферальным кодом
+            var referralCode = document.getElementById("referralCode").innerText;
+            
+            // Создаем временный элемент input для копирования текста
+            var tempInput = document.createElement("input");
+            tempInput.value = referralCode;
+            document.body.appendChild(tempInput);
+            
+            // Выделяем текст и копируем его в буфер обмена
+            tempInput.select();
+            document.execCommand("copy");
+            
+            // Удаляем временный элемент
+            document.body.removeChild(tempInput);
+
+            // Показываем сообщение об успешном копировании
+            var copySuccess = document.getElementById("copySuccess");
+            copySuccess.style.display = "inline";
+            
+            // Прячем сообщение через 2 секунды
+            setTimeout(function() {
+                copySuccess.style.display = "none";
+            }, 2000);
+        }
+    </script>
+
+    <script>
+        // Получаем элементы
+        var modal = document.getElementById("profileModal");
+        var openBtn = document.getElementById("openProfileBtn");
+        var closeBtn = document.getElementsByClassName("close-btn")[0];
+        
+        // Открыть модальное окно при нажатии на "Показать профиль"
+        openBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        // Закрыть модальное окно при нажатии на кнопку "x"
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        // Закрыть модальное окно, если пользователь нажал за его пределами
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        </script>
+        
+    
+    <div class="bottom-menu">
+        <a href="../index.html"><img src="../icons/home.png" class="menu-icon" alt="Home"></a>
+        <a href="cart.html"><img src="../icons/bicon.png" class="menu-icon-cart" alt="Cart"></a>
+        <a href="favorite.html"><img src="../icons/love.png" class="menu-icon" alt="Favorites"></a>
+        <a href="orders.html"><img src="../icons/zaki.png" class="menu-icon" alt="Profile"></a>
+        <a href="profile.html"><img src="../icons/profile.png" class="menu-icon" alt="Profile"></a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+.bottom-menu {
+    position: fixed; /* Меню фиксируется внизу экрана */
+    bottom: 0; /* Расположено внизу */
+    left: 0;
+    width: 100%; /* Меню занимает всю ширину экрана */
+    background-color: #ffffff; /* Фон меню (можно изменить) */
+    display: flex; /* Используем flex для равномерного расположения иконок */
+    justify-content: space-around; /* Распределение иконок по ширине меню */
+    padding: 10px 0; /* Вертикальные отступы */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
+    z-index: 1000; /* Задаем высокий z-index, чтобы меню было всегда сверху */
+}
+
+.menu-icon {
+    width: 25px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+.menu-icon-cart {
+    width: 27px; /* Ширина иконок */
+    height: auto; /* Пропорциональная высота */
+}
+
+
+a {
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+}
+
+.order-cont{
+    width: 90%;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Более сильная и размытая тень */
+}
+
+.order-row{
+    display: flex;
+    width: 100%;
+    align-items: center; 
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    
+}
+
+.img {
+    margin-left: auto; /* Изображение перемещается в конец строки */
+    width: 50px;
+    border-radius: 50%;
+    
+}
+.center-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Перемещаем текст точно по центру строки */
+    white-space: nowrap; /* Чтобы текст не переносился на новую строку */
+    font-size: 20px;
+    text-align: center; /* Горизонтальное выравнивание текста по центру */
+}
+
+.order-cont{
+    width: 95%;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Более сильная и размытая тень */
+}
+
+.img-cont{
+    width: 20%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.row-order{
+    display: flex;
+    gap: 10px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.inf-col-order{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Убираем расстояние между элементами */
+    padding: 0;
+    margin: 0;
+
+}
+
+.inf-order-row {
+    display: flex;
+    gap: 20px;
+    padding: 0px;
+    align-items: center; /* Центрирование всех элементов по одной линии */
+}
+
+.inf-text {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.inf-text-p {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px; /* Задаем высоту строки равную размеру шрифта */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание внутри контейнера */
+    justify-content: center;
+    height: 30px; /* Фиксируем высоту для выравнивания с другими элементами */
+}
+
+.inf-text-m {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px; /* Задаем высоту строки равную размеру шрифта */
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание внутри контейнера */
+    justify-content: center;
+    height: 30px; /* Фиксируем высоту для выравнивания с другими элементами */
+    margin-bottom: 3px;
+}
+
+
+.bonus-container {
+    display: flex;
+    align-items: center; /* Центрирование иконки и текста внутри контейнера */
+    gap: 10px;           /* Расстояние между текстом и фиолетовым контейнером */
+}
+
+.bonus-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.bonus-box {
+    display: flex;
+    align-items: center; /* Центрирование иконки и бонусного значения */
+    background-color: #800080;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+
+.bonus-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.bonus-value {
+    font-weight: bold;
+}
+
+.size-row{
+    display: flex;
+    gap: 30px;
+}
+
+.name-text{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.name-col{
+    display: grid;
+    gap: 0px;
+    padding: 0;
+
+}
+
+.name-col-shop{
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 0px;  /* Центрирование по горизонтали */
+    padding-left: 10px;
+    display: grid;
+    gap: 0px;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Более сильная и размытая тень */
+
+}
+
+.scroll-container-shop{
+    display: flex;
+    padding-left: 10px;
+    overflow-x: auto;  /* Добавляем горизонтальную прокрутку */
+    gap: 10px;         /* Расстояние между элементами */
+    /* padding: 10px 0;  */
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /* Убираем полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+  /* Отступы сверху и снизу */
+}
+
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;  /* Добавляем горизонтальную прокрутку */
+    gap: 10px;         /* Расстояние между элементами */
+    padding: 10px 0; 
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /* Убираем полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+  /* Отступы сверху и снизу */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;  /* Убираем полосы прокрутки в Chrome, Safari, Opera */
+}
+
+.scroll-item {
+    background-color: #c0baba; /* Цвет фона */
+    padding: 5px 5px;        /* Внутренние отступы */
+    border-radius: 10px;       /* Скругленные края */
+    white-space: nowrap;       /* Запрещаем перенос текста */
+    font-size: 14px;           /* Размер текста */
+    cursor: pointer;           /* Курсор при наведении */
+}
+
+.scroll-item-cel{
+    background-color: #dbc51e; /* Цвет фона */
+    padding: 5px 5px;        /* Внутренние отступы */
+    border-radius: 20px;       /* Скругленные края */
+    white-space: nowrap;       /* Запрещаем перенос текста */
+    font-size: 14px;           /* Размер текста */
+    cursor: pointer;           /* Курсор при наведении */
+}
+
+.bonus-text-shop{
+    white-space: nowrap;
+    color: #000000;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+h2{
+    padding-left: 10px;
+}
+
+.img-inrow{
+    border-radius: 10px;
+    /* width: 100%; */
+}
+
+.img-name-row{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+    width: 150px;
+}
+
+.img-cont-choice{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    /* width: 100%;  */
+}
+
+.price-tag {
+
+    white-space: nowrap;
+    position: absolute; /* Абсолютное позиционирование */
+    bottom: 10px; /* Расположить 10px от нижней части изображения */
+    left: 50%; /* Центрирование по горизонтали относительно контейнера */
+    transform: translateX(-50%);
+    background-color: #7d1469; /* Фиолетовый фон */
+    color: #fff; /* Белый текст */
+    padding: 3px 5px; /* Внутренние отступы для блока с ценой */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 12px; /* Размер текста */
+    font-weight: bold; /* Жирный текст */
+    text-align: center; /* Центрирование текста внутри блока */
+    opacity: 0.8;
+}
+
+.row-img-name{
+    display: flex;
+    overflow-x: auto;  /* Добавляем горизонтальную прокрутку */
+    gap: 10px;         /* Расстояние между элементами */
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /* Убираем полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.sum-add-row{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.sum-add-cont{
+    background-color: hsl(0, 3%, 71%);
+    font-size: 16px;
+    margin: 5px 5px 5px 5px;
+    padding-left: 5px;
+    border-radius: 5px;
+    padding-right: 5px;
+
+}
+
+.sum-add-cont-p{
+    background-color: hsl(0, 3%, 71%);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    height: auto;
+    margin: 5px 5px 5px 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+
+}
+
+.sum-row{
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.save-button{
+    background: hsl(303, 88%, 26%);
+    width: 100%;
+    margin: auto 0;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block; /* Убедитесь, что кнопка ведет себя как блочный элемент */
+
+
+}

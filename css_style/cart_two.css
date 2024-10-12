@@ -1,0 +1,192 @@
+.header-row{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    gap: 10px;
+    width: 100%;
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /*  полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+}
+
+.sum-cont-row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bonus-row{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.delivery-container{
+    background-color: rgb(240, 238, 238);
+    border-radius: 10px;
+    padding: 10px ;
+    flex-shrink: 0; /* Запрещаем сжимание контейнеров */
+
+    
+}
+
+body{
+    padding-left: 7px;
+}
+
+.scroll-container-shop{
+    display: flex;
+    overflow-x: auto;  /* Добавляем горизонтальную прокрутку */
+    gap: 10px;         /* Расстояние между элементами */
+    /* padding: 10px 0;  */
+    scroll-behavior: smooth;  /* Плавная прокрутка */
+    -ms-overflow-style: none;  /* Убираем полосы прокрутки в IE и Edge */
+    scrollbar-width: none;     /* Убираем полосы прокрутки в Firefox */
+  /* Отступы сверху и снизу */
+}
+
+.scroll-item {
+    background-color: #d9d9d9; /* Цвет фона */
+    padding: 5px 5px;        /* Внутренние отступы */
+    border-radius: 5px;       /* Скругленные края */
+    white-space: nowrap;       /* Запрещаем перенос текста */
+    font-size: 14px;           /* Размер текста */
+    cursor: pointer;           /* Курсор при наведении */
+}
+
+/* Основной контейнер */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Строка с переключателем */
+.switch-row {
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Стили для переключателя */
+.switch {
+    width: 40px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #ccc;
+    border-radius: 15px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+}
+
+.switch:checked {
+    background-color: #4CAF50;
+}
+
+.switch:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: 0.3s;
+}
+
+.switch:checked:before {
+    left: 21px;
+}
+
+/* Заголовки и метки */
+.label {
+    font-size: 16px;
+}
+
+/* Стили для полей ввода */
+.input-field {
+    width: 95%;
+    margin: 0 auto;
+    height: 30px;
+    padding: 10px;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.small {
+    width: 48%; /* Для выравнивания двух полей */
+}
+
+/* Стиль двухколоночной секции */
+.two-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 4%;
+}
+
+.save-button-class{
+    background: hsl(303, 88%, 26%);
+    width: 98%;
+    margin: auto 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block; /* Убедитесь, что кнопка ведет себя как блочный элемент */
+}
+
+.bonus-container {
+    display: flex;
+    align-items: center; /* Центрирование иконки и текста внутри контейнера */
+    gap: 10px;           /* Расстояние между текстом и фиолетовым контейнером */
+}
+
+.bonus-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.bonus-box {
+    display: flex;
+    align-items: center; /* Центрирование иконки и бонусного значения */
+    background-color: #800080;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+}
+
+.bonus-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.bonus-value {
+    font-weight: bold;
+}
+
+.sum-row{
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
