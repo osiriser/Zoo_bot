@@ -129,18 +129,22 @@
         </script>
        
        <script>
-        // Инициализируем Web App
-        Telegram.WebApp.ready();
-
-        // Получаем данные о пользователе из объекта Telegram WebApp
-        const user = Telegram.WebApp.initDataUnsafe.user;
-
-        // Проверяем, что данные пользователя есть
-        if (user) {
-            // Вставляем имя пользователя в HTML элемент
-            document.getElementById("username").textContent = user.username || `${user.first_name} ${user.last_name}`;
+        if (window.Telegram && window.Telegram.WebApp) {
+            // Инициализируем Web App
+            Telegram.WebApp.ready();
+    
+            // Получаем данные о пользователе
+            const user = Telegram.WebApp.initDataUnsafe.user;
+            
+            console.log(user); // Выводим данные для проверки
+            
+            if (user) {
+                document.getElementById("username").textContent = user.username || `${user.first_name} ${user.last_name}`;
+            } else {
+                document.getElementById("username").textContent = "Неизвестный пользователь";
+            }
         } else {
-            document.getElementById("username").textContent = "Неизвестный пользователь";
+            console.error("Telegram WebApp API не доступен");
         }
     </script>
     
