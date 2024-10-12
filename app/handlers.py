@@ -36,4 +36,4 @@ async def command_start_handler(message: Message):
         """, user_id, username)
     finally:
         await conn.close()
-    await message.answer("Hello, world!", reply_markup=reply_markup)
+    await message.answer("Hello, user!", reply_markup=reply_markup)
