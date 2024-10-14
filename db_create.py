@@ -1,7 +1,7 @@
 import asyncpg
 
 async def create_table():
-    conn = await asyncpg.connect(database="bot_users",
+    conn = await asyncpg.connect(database="users",
                                  user="postgres",
                                  host="localhost",
                                  password="kuroishi31!",
