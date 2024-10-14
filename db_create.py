@@ -13,6 +13,7 @@ async def create_table():
                        CREATE TABLE users (
                             tg_user_id BIGINT PRIMARY KEY,  -- Telegram user_id
                             tg_username VARCHAR(255),       -- Telegram username
+                            referral_id BIGINT,
                             number_points INTEGER NOT NULL DEFAULT 0,
                             country VARCHAR(255),           -- Страна
                             region VARCHAR(255),            -- Регион

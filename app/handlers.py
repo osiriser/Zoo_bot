@@ -7,33 +7,21 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.enums.parse_mode import ParseMode
 
 import app.keyboards as kb
+import db_commands
+
 
 router = Router()
 
-import asyncpg
-
-async def connect():
-    return await asyncpg.connect(database="users",
-                                 user="postgres",
-                                 host="localhost",
-                                 password="kuroishi31!",
-                                 port=5432)
 
 @router.message(CommandStart())
-async def command_start_handler(message: Message):
-    reply_markup = await kb.start_keyboard()
+async def command_start_handler(message: Message, command: CommandObject):
     user_id = message.from_user.id
+    bot = message.bot
+    args = command.args
     username = message.from_user.username
-
-    conn = await connect()
-    # Вставка пользователя в базу данных
-    try:
-        # Вставка пользователя в базу данных
-        await conn.execute("""
-            INSERT INTO users (tg_user_id, tg_username)
-            VALUES ($1, $2)
-            ON CONFLICT (tg_user_id) DO NOTHING;
-        """, user_id, username)
-    finally:
-        await conn.close()
-    await message.answer("Hello, user!", reply_markup=reply_markup)
+    new_args = await db_commands.check_args(args, message.from_user.id)
+    response = await db_commands.register_user(message.from_user.id, new_args, username)
+    reply_markup = await kb.start_keyboard()
+    referral_link = await create_start_link(bot=bot, payload=str(user_id))
+    await message.answer(f"Hello, user!"
+                         f"\nYour referral link: {referral_link}", reply_markup=reply_markup)
