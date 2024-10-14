@@ -5,7 +5,7 @@ document.getElementById('continue-button').addEventListener('click', async () =>
     continueButton.textContent = "Loading..."
     console.log(window.Telegram.WebApp.initDataUnsafe.user.id);
             // Получаем данные из полей формы
-    const userId = window.Telegram.WebApp.initDataUnsafe.user.id;
+    const userId = window.Telegram.WebApp.InitDataUnsafe.user.id;
     const contactName = document.querySelector('input[placeholder="Contact Name*"]').value;
     const mobileNumber = document.querySelector('input[placeholder="Mobile number*"]').value;
     const streetHouse = document.querySelector('input[placeholder="Street, house/apartment/unit*"]').value;
