@@ -7,7 +7,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.enums.parse_mode import ParseMode
 
 import app.keyboards as kb
-import db_commands
+import app.db_commands as db_commands
 
 
 router = Router()
