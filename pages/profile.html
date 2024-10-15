@@ -133,10 +133,12 @@
     window.Telegram.WebApp.ready();
 
     // Получаем параметры из initData
-    const params = new URLSearchParams(Telegram.WebApp.initData);
+    const params = new URLSearchParams(window.Telegram.WebApp.initData);
 
     // Преобразуем параметры в объект
     const userData = Object.fromEntries(params);
+
+    window.Telegram.WebApp.showAlert(`HI ${userData}`);
 
     // Преобразуем данные пользователя из строки в объект
     if (userData.user) {
