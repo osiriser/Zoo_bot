@@ -129,16 +129,32 @@
         </script>
        
        <script>
-            let tg = window.Telegram.WebApp;
-            let username = document.getElementById("username");
+    // Инициализация Web App
+    window.Telegram.WebApp.ready();
 
-            let p = document.createElement("p");
+    // Получаем параметры из initData
+    const params = new URLSearchParams(Telegram.WebApp.initData);
 
-            p.innerText = `${tg.initData.user.first_name}
-            ${tg.initData.user.last_name}`;
+    // Преобразуем параметры в объект
+    const userData = Object.fromEntries(params);
 
-            username.appendChild(p);
-    </script>
+    // Преобразуем данные пользователя из строки в объект
+    if (userData.user) {
+        userData.user = JSON.parse(userData.user);
+
+        // Проверяем наличие данных о пользователе и вставляем их в HTML
+        let username = document.getElementById("username");
+        let p = document.createElement("p");
+
+        // Вставляем first_name и last_name или username
+        p.innerText = `${userData.user.first_name || ''} ${userData.user.last_name || ''}`.trim() || userData.user.username;
+        username.appendChild(p);
+    } else {
+        // Если данных о пользователе нет, отображаем сообщение
+        document.getElementById("username").textContent = "Неизвестный пользователь";
+    }
+</script>
+
     
     <div class="bottom-menu">
         <a href="../index.html"><img src="../icons/home.png" class="menu-icon" alt="Home"></a>
