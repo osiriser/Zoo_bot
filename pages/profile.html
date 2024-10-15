@@ -130,7 +130,9 @@
        
        <script>
     // Инициализация Web App
-    window.Telegram.WebApp.ready();
+
+    let WebApp = window.Telegram.WebApp;
+    console.log(WebApp.initDataUnsafe);
 
     // Получаем параметры из initData
     const params = new URLSearchParams(window.Telegram.WebApp.initData);
