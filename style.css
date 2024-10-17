@@ -82,7 +82,7 @@ s
 
 /* Стили для карточек */
 .card {
-    min-width: 90%;  
+    min-width: 100%;  
     /* height: 50%;  Высота карточки */
     background-color: #f6f6f6;  /* Цвет фона карточки */
     display: flex;  /* Flex для центрирования текста */
@@ -219,13 +219,13 @@ h2 {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 100%) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд на маленьких экранах */
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 100%) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд на самых маленьких экранах */
     }
@@ -469,15 +469,16 @@ h2 {
 .bottom-menu {
     position: fixed; /* Меню фиксируется внизу экрана */
     bottom: 0; /* Расположено внизу */
-    left: 0;
     width: 100%; /* Меню занимает всю ширину экрана */
-    background-color: #ffffff; /* Фон меню (можно изменить) */
+    background-color: #ffffff; /* Фон меню */
     display: flex; /* Используем flex для равномерного расположения иконок */
-    justify-content: space-around; /* Распределение иконок по ширине меню */
+    justify-content: space-evenly; /* Равномерное распределение иконок */
+    align-items: center; /* Центрирование иконок по вертикали */
     padding: 10px 0; /* Вертикальные отступы */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для эффекта объема */
-    z-index: 1000; /* Задаем высокий z-index, чтобы меню было всегда сверху */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для объема */
+    z-index: 1000; /* Высокий z-index */
 }
+
 
 .menu-icon {
     width: 25px; /* Ширина иконок */
