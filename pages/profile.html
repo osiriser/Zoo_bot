@@ -41,7 +41,7 @@
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <div class="window-row-up">
-                <h2>Профиль пользователя</h2>
+                <h2>User profile</h2>
                 <span class="close-btn">&times;</span>
             </div>
             <div class="input-col">
@@ -140,7 +140,6 @@
     // Преобразуем параметры в объект
     const userData = Object.fromEntries(params);
 
-    window.Telegram.WebApp.showAlert(`HI ${userData}`);
 
     // Преобразуем данные пользователя из строки в объект
     if (userData.user) {
