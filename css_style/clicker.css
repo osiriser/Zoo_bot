@@ -67,7 +67,7 @@ body{
 
 .horizont-line {
     margin-top: 15px;
-    width: 570px;
+    width: 100%;
     border-top: 10px solid #b910ab;
     box-sizing: border-box;
   }
