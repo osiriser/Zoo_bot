@@ -173,12 +173,11 @@ s
     height: auto; /* Пропорциональная высота */
 }
 
-.tasks-icon {
-    width: 25px; /* Ширина иконок */
+.menu-icon-cart {
+    width: 27px; /* Ширина иконок */
     height: auto; /* Пропорциональная высота */
 }
-
-.shop-icon {
-    width: 25px; /* Ширина иконок */
+.tasks-icon {
+    width: 27px; /* Ширина иконок */
     height: auto; /* Пропорциональная высота */
 }
