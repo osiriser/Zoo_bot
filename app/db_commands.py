@@ -49,3 +49,14 @@ async def check_args(args, user_id: int):
     else:
         args = 0
         return args
+
+async def get_user_points(telegram_id):
+    conn = await connect()
+    points = await conn.fetchval("SELECT points FROM users WHERE tg_user_id = $1", telegram_id)
+    await conn.close()
+    return points
+
+async def update_user_points(telegram_id, points):
+    conn = await connect()
+    await conn.execute("UPDATE users SET points = %s WHERE user_id = %s", (points, telegram_id))
+    await conn.close()
