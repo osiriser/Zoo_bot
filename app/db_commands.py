@@ -58,5 +58,5 @@ async def get_user_points(telegram_id):
 
 async def update_user_points(telegram_id, points):
     conn = await connect()
-    await conn.execute("UPDATE users SET number_points = %1 WHERE tg_user_id = %2", points, telegram_id)
+    await conn.execute("UPDATE users SET number_points = $1 WHERE tg_user_id = $2", points, telegram_id)
     await conn.close()
