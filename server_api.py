@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/api/get-user-points', methods=['GET'])
 async def get_user_points():
     user_id = request.args.get('user_id')
-    response = await db_commands.get_user_points(user_id)
+    response = await db_commands.get_user_points(int(user_id))
     if response is None:
         return jsonify({'points': 0})
     else:
@@ -21,7 +21,7 @@ async def save_points():
     user_id = data['user_id']
     points = data['points']
 
-    response_update_points = await db_commands.update_user_points_points(user_id, points)
+    response_update_points = await db_commands.update_user_points_points(int(user_id), int(points))
     
     return jsonify({'status': 'success'})
 
