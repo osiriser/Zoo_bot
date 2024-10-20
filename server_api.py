@@ -24,9 +24,11 @@ async def save_points():
     user_id = request.form.get('user_id')
     points = request.form.get('points')
 
+    print(f"Received user_id: {user_id}, points: {points}")
+
     if not user_id or not points:
         return jsonify({'status': 'error', 'message': 'Missing data'}), 400
-    response_update_points = await db_commands.update_user_points_points(int(user_id), int(points))
+    response_update_points = await db_commands.update_user_points(int(user_id), int(points))
     
     return jsonify({'status': 'success'})
 

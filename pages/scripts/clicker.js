@@ -27,6 +27,7 @@ window.addEventListener("beforeunload", function() {
             user_id: userId,
             points: points
         });
+        console.log('Sending points:', data.toString());
         navigator.sendBeacon("/api/save-points", data);
     }
 });
