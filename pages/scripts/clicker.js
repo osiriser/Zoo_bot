@@ -4,7 +4,7 @@ let userId = document.getElementById('user_id').value; // Предположим
 
 // Функция для подгрузки очков из базы данных при загрузке страницы
 window.onload = function() {
-    fetch(`/get-user-points?user_id=${userId}`)
+    fetch(`/api/get-user-points?user_id=${userId}`)
         .then(response => response.json())
         .then(data => {
             points = data.points; // Инициализируем очки из базы данных
@@ -23,7 +23,7 @@ document.getElementById("bird").addEventListener("click", function() {
 // Отправляем очки на сервер только при закрытии страницы
 window.addEventListener("beforeunload", function() {
     if (points !== savedPoints) {
-        navigator.sendBeacon("/save-points", JSON.stringify({
+        navigator.sendBeacon("/api/save-points", JSON.stringify({
             user_id: userId,
             points: points
         }));
