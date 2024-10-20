@@ -17,10 +17,15 @@ async def get_user_points():
 # Сохранение очков пользователя при закрытии страницы
 @app.route('/api/save-points', methods=['POST'])
 async def save_points():
-    data = request.json
-    user_id = data['user_id']
-    points = data['points']
+    #data = request.json
+    #user_id = data['user_id']
+    #points = data['points']
 
+    user_id = request.form.get('user_id')
+    points = request.form.get('points')
+
+    if not user_id or not points:
+        return jsonify({'status': 'error', 'message': 'Missing data'}), 400
     response_update_points = await db_commands.update_user_points_points(int(user_id), int(points))
     
     return jsonify({'status': 'success'})

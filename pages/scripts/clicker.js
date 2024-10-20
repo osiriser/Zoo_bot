@@ -23,9 +23,10 @@ document.getElementById("bird").addEventListener("click", function() {
 // Отправляем очки на сервер только при закрытии страницы
 window.addEventListener("beforeunload", function() {
     if (points !== savedPoints) {
-        navigator.sendBeacon("/api/save-points", JSON.stringify({
+        const data = new URLSearchParams({
             user_id: userId,
             points: points
-        }));
+        });
+        navigator.sendBeacon("/api/save-points", data);
     }
 });
