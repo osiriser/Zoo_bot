@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 
 
-@app.route('/get-user-points', methods=['GET'])
+@app.route('/api/get-user-points', methods=['GET'])
 async def get_user_points():
     user_id = request.args.get('user_id')
     response = await db_commands.get_user_points(user_id)
@@ -15,7 +15,7 @@ async def get_user_points():
         return jsonify({'points': response})
 
 # Сохранение очков пользователя при закрытии страницы
-@app.route('/save-points', methods=['POST'])
+@app.route('/api/save-points', methods=['POST'])
 async def save_points():
     data = request.json
     user_id = data['user_id']
