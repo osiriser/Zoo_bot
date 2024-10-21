@@ -193,3 +193,20 @@ body{
     gap: 15px;
     justify-content: space-between;
 }
+
+.continue-button-class{
+    background: hsl(303, 88%, 26%);
+    width: 100%;
+    margin: auto 0;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block; /* Убедитесь, что кнопка ведет себя как блочный элемент */
+
+
+}
