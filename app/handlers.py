@@ -21,7 +21,7 @@ async def command_start_handler(message: Message, command: CommandObject):
     username = message.from_user.username
     new_args = await db_commands.check_args(args, message.from_user.id)
     response = await db_commands.register_user(message.from_user.id, new_args, username)
-    reply_markup = await kb.start_keyboard()
+    
     referral_link = await create_start_link(bot=bot, payload=str(user_id))
     await message.answer(f"Hello, user!"
-                         f"\nYour referral link: {referral_link}", reply_markup=reply_markup)
+                         f"\nYour referral link: {referral_link}")
