@@ -12,6 +12,6 @@ function completeTask(taskId) {
     const taskButton = document.getElementById(taskId);
     taskButton.classList.add('completed');
     taskButton.querySelector('a').style.pointerEvents = 'none';
-    taskButton.disabled = true;
+    taskButton.style.pointerEvents = 'none';
     }
     
