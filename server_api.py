@@ -34,9 +34,8 @@ async def save_points():
 
 @app.route('/api/complete-task', methods=['POST'])
 async def complete_task():
-    data = request.json
-    user_id = data.get('user_id')
-    task_id = data.get('task_id')
+    user_id = request.form.get('user_id')
+    task_id = request.form.get('task_id')
 
     if not user_id or not task_id:
         return jsonify({'status': 'error', 'message': 'Missing data'}), 400
