@@ -184,3 +184,13 @@ s
     width: 27px; /* Ширина иконок */
     height: auto; /* Пропорциональная высота */
 }
+
+.task-button.completed a {
+    color: #ffffff; /* Цвет текста ссылки */
+    pointer-events: none; /* Ссылка становится неактивной */
+}
+
+.task-button.completed {
+    background-color: grey; /* Фон кнопки меняется на серый */
+    cursor: not-allowed; /* Меняется курсор */
+}

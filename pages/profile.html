@@ -68,31 +68,8 @@
         }
     </script>
 
-    <script>
-        // Получаем элементы
-        var modal = document.getElementById("profileModal");
-        var openBtn = document.getElementById("openProfileBtn");
-        var closeBtn = document.getElementsByClassName("close-btn")[0];
-        
-        // Открыть модальное окно при нажатии на "Показать профиль"
-        openBtn.onclick = function() {
-            modal.style.display = "block";
-        }
-        
-        // Закрыть модальное окно при нажатии на кнопку "x"
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-        
-        // Закрыть модальное окно, если пользователь нажал за его пределами
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-        </script>
        
-       <script>
+    <script>
     // Инициализация Web App
 
     let WebApp = window.Telegram.WebApp;
@@ -120,7 +97,7 @@
         // Если данных о пользователе нет, отображаем сообщение
         document.getElementById("username").textContent = "Неизвестный пользователь";
     }
-</script>
+    </script>
 
     
     <div class="bottom-menu">

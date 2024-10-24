@@ -33,11 +33,20 @@
         <span class="center-about-text">Here you can do short tasks and get points</span>
     </div>
     <div class="tasks-container">
-        <button class="task-button">Join our Youtube</button>
-        <button class="task-button">Like our post</button>
-        <button class="task-button">Invite 1 friend</button>
-        <button class="task-button">Watch store stream</button>
+        <button id="task1" class="task-button" onclick="completeTask('task1')">
+            <a href="https://www.youtube.com/@nikitaefremov_me" target="_blank">Join our YouTube</a>
+        </button>
+        <button id="task2" class="task-button" onclick="completeTask('task2')">
+            <a href="https://instagram.com/somepost" target="_blank">Like our post</a>
+        </button>
+        <button id="task3" class="task-button" onclick="completeTask('task3')">
+            <a href="https://telegram.org/someinvite" target="_blank">Invite 1 friend</a>
+        </button>
+        <button id="task4" class="task-button" onclick="completeTask('task4')">
+            <a href="https://twitch.tv/somestream" target="_blank">Watch store stream</a>
+        </button>
     </div>
+    <script src="scripts/task-complete.js"></script>
 
     <div class="progress-bar">
         <div class="progress"></div>

@@ -20,7 +20,11 @@ async def create_table():
                             mobile_number VARCHAR(20),      -- Мобильный номер
                             street_house VARCHAR(255),      -- Улица, дом и корпус
                             zip_code VARCHAR(10),           -- Почтовый индекс
-                            extra_info TEXT                 -- Дополнительная информация
+                            extra_info TEXT,
+                            task1 BOOLEAN NOT NULL DEFAULT FALSE,
+                            task2 BOOLEAN NOT NULL DEFAULT FALSE,
+                            task3 BOOLEAN NOT NULL DEFAULT FALSE,
+                            task4 BOOLEAN NOT NULL DEFAULT FALSE                         
                         );
                     """)
 

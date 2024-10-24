@@ -32,5 +32,20 @@ async def save_points():
     
     return jsonify({'status': 'success'})
 
+@app.route('/api/complete-task', methods=['POST'])
+async def complete_task():
+    data = request.json
+    user_id = data.get('user_id')
+    task_id = data.get('task_id')
+
+    if not user_id or not task_id:
+        return jsonify({'status': 'error', 'message': 'Missing data'}), 400
+
+    # Обновление задачи в базе данных
+    bonus_points = await db_commands.complete_task(int(user_id), task_id)
+
+    return jsonify({'status': 'success'})
+
+
 if __name__ == "__main__":
     app.run(debug=True)
