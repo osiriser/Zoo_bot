@@ -36,12 +36,12 @@ async def save_points():
 async def complete_task():
     user_id = request.form.get('user_id')
     task_id = request.form.get('task_id')
-
+    print(f"Received user_id: {user_id}, task_id: {task_id}")
     if not user_id or not task_id:
         return jsonify({'status': 'error', 'message': 'Missing data'}), 400
 
     # Обновление задачи в базе данных
-    bonus_points = await db_commands.complete_task(int(user_id), task_id)
+    response_update_task = await db_commands.complete_task(int(user_id), task_id)
 
     return jsonify({'status': 'success'})
 
