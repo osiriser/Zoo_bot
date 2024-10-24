@@ -64,7 +64,7 @@ async def update_user_points(telegram_id, points):
 
 async def complete_task(telegram_id, task_id):
     conn = await connect()
-    query = f"UPDATE users SET {task_id} = TRUE WHERE user_id = $1"
+    query = f"UPDATE users SET {task_id} = TRUE WHERE tg_user_id = $1"
     await conn.execute(query, telegram_id)
     await conn.execute("""
         UPDATE users
