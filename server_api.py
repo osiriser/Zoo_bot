@@ -45,6 +45,12 @@ async def complete_task():
 
     return jsonify({'status': 'success'})
 
+@app.route('/api/get-tasks-status', methods=['GET'])
+async def get_tasks_status():
+    user_id = request.args.get('user_id')
+    tasks_status = await db_commands.get_tasks_status(int(user_id))
+    return jsonify(tasks_status)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

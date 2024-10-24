@@ -72,3 +72,28 @@ async def complete_task(telegram_id, task_id):
         WHERE tg_user_id = $1
     """, telegram_id)
     await conn.close()
+
+async def get_tasks_status(telegram_id):
+    conn = await connect()
+    
+    # Выполняем запрос к базе данных, чтобы получить состояние задач пользователя
+    query = """
+    SELECT task1, task2, task3, task4
+    FROM users
+    WHERE tg_user_id = $1
+    """
+    
+    row = await conn.fetchrow(query, telegram_id)
+    
+    # Закрываем соединение
+    await conn.close()
+    
+    # Формируем объект с флагами выполнения задач
+    tasks_status = {
+        "task1": row['task1'],
+        "task2": row['task2'],
+        "task3": row['task3'],
+        "task4": row['task4']
+    }
+    
+    return tasks_status
