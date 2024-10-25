@@ -52,5 +52,24 @@ async def get_tasks_status():
     return jsonify(tasks_status)
 
 
+@app.route('/api/categories')
+async def get_categories():
+    categories = await db_commands.get_categories
+    return jsonify(categories)
+
+# Маршрут для получения подкатегорий
+@app.route('/api/subcategories')
+async def get_subcategories():
+    category_id = request.args.get('category_id')
+    subcategories = db_commands.get_subcategories(int(category_id))
+    return jsonify(subcategories)
+
+# Маршрут для получения товаров
+@app.route('/api/products')
+async def get_products():
+    subcategory_id = request.args.get('subcategory_id')
+    products = db_commands.get_products(subcategory_id)
+    return jsonify(products)
+
 if __name__ == "__main__":
     app.run(debug=True)

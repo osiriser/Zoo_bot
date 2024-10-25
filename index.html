@@ -8,6 +8,7 @@
     <!-- Подключение файла стилей -->
     <link rel="stylesheet" href="style.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="pages/scripts/categories_dinamic.js"></script>
 </head>
 <body>
 
@@ -44,33 +45,9 @@
     </div>
     <div class="selections">
         <h2>Store Categories</h2>
-        <div class="grid-container">
-            <div class="grid-item">
-                <img src="icons/cat-icon.webp" alt="Cat">
-                <p>Cat</p>
-            </div>
-            <div class="grid-item">
-                <img src="icons/dog-icon.png" alt="Dog">
-                <p>Dog</p>
-            </div>
-            <div class="grid-item">
-                <img src="icons/hamster-icon.webp" alt="Hamster">
-                <p>Hamster</p>
-            </div>
-            <div class="grid-item">
-                <img src="icons/bird-icon.png" alt="Bird">
-                <p>Bird</p>
-            </div>
-            <div class="grid-item">
-                <img src="icons/fish-icon.png" alt="Fish">
-                <p>Fish</p>
-            </div>
-            <div class="grid-item">
-                <img src="icons/horse.png" alt="Horse">
-                <p>Horse</p>
-            </div>
-        </div>
+        <div id="category-container" class="grid-container"></div>
     </div>
+    
 
     <div class="bottom-menu">
         <a href="pages/clicker.html"><img src="icons/house.png" class="menu-icon" alt="Tapper"></a>
