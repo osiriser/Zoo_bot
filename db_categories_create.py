@@ -27,7 +27,7 @@ async def create_table():
                     """)
 
     await conn.execute("""
-                        DROP TABLE IF EXISTS subcategories;
+                        DROP TABLE IF EXISTS products;
                         CREATE TABLE products (
                             id SERIAL PRIMARY KEY,
                             subcategory_id INT REFERENCES subcategories(id),
