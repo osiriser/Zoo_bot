@@ -24,7 +24,8 @@ async def create_table():
                         CREATE TABLE subcategories (
                             id SERIAL PRIMARY KEY,
                             category_id INT REFERENCES categories(id),
-                            name VARCHAR(255) NOT NULL
+                            name VARCHAR(255) NOT NULL,
+                            image_url VARCHAR(255)
                         );
                     """)
 
