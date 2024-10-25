@@ -61,14 +61,14 @@ async def get_categories():
 @app.route('/api/subcategories')
 async def get_subcategories():
     category_id = request.args.get('category_id')
-    subcategories = db_commands.get_subcategories(int(category_id))
+    subcategories = await db_commands.get_subcategories(int(category_id))
     return jsonify(subcategories)
 
 # Маршрут для получения товаров
 @app.route('/api/products')
 async def get_products():
     subcategory_id = request.args.get('subcategory_id')
-    products = db_commands.get_products(subcategory_id)
+    products = await db_commands.get_products(subcategory_id)
     return jsonify(products)
 
 if __name__ == "__main__":
