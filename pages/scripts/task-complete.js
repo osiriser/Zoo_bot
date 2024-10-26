@@ -13,5 +13,6 @@ function completeTask(taskId) {
     taskButton.classList.add('completed');
     // taskButton.querySelector('a').style.pointerEvents = 'none';
     taskButton.style.pointerEvents = 'none';
+    window.location.href = url;
     }
     
