@@ -1,5 +1,5 @@
 // Функция для выполнения задачи
-function completeTask(taskId) {
+function completeTask(taskId, url) {
     
     const data = new URLSearchParams({
         user_id: userId,
