@@ -180,11 +180,12 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    width: 90%;
-    margin: auto; /* Центрируем содержимое */
+    grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд */
+    gap: 15px; /* Расстояние между карточками */
+    width: 90%; /* Ограничиваем ширину контейнера */
+    margin: 0;
 }
+
 
 .grid-item {
     position: relative;
@@ -196,39 +197,40 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    aspect-ratio: 1 / 1;
+    align-items: center; /* Выровнять содержимое по центру горизонтально */
+    aspect-ratio: 1 / 1; /* Сохраняет квадратную форму */
 }
 
 .grid-item img {
-    width: 80%;
-    height: auto;
-    margin-bottom: 10px;
+    width: 80%; /* Увеличиваем иконку до 80% от ширины контейнера */
+    height: auto; /* Сохраняем пропорции изображения */
+    margin-bottom: 10px; /* Добавляем отступ между изображением и текстом */
 }
 
 .grid-item p {
     font-size: 16px;
     margin: 0;
-    text-align: center;
+    text-align: center; /* Выравнивание текста по центру */
 }
 
 .grid-item:hover {
     transform: scale(1.05);
 }
 
-/* Медиазапросы для адаптации */
-@media (max-width: 768px) {
+
+
+
+@media (max-width: 100%) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд на маленьких экранах */
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 100%) {
     .grid-container {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд на самых маленьких экранах */
     }
 }
-
 
 .recommended-shops{
     padding-left: 10px;
