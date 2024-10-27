@@ -81,7 +81,7 @@ s
 
 /* Стили для карточек */
 .card {
-    max-width: 100%;  
+    min-width: 100%;  
     /* height: 50%;  Высота карточки */
     background-color: #f6f6f6;  /* Цвет фона карточки */
     display: flex;  /* Flex для центрирования текста */
@@ -182,7 +182,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд */
     gap: 15px; /* Расстояние между карточками */
-    max-width: 100%; /* Ограничиваем ширину контейнера */
+    width: 100%; /* Ограничиваем ширину контейнера */
     margin: 0 auto;
 }
 
