@@ -17,7 +17,8 @@ async def populate_subcategories():
         ('Cat Toys', category_id, 'icons/cat-toy.png'),
         ('Cat Beds', category_id, 'icons/cat-house.png'),
         ('Cat Litter', category_id, 'icons/litter-box.png'),
-        ('Cat Accessories', category_id, 'icons/pet-bed.png')
+        ('Cat Accessories', category_id, 'icons/pet-bed.png'),
+        ('Cat Clothes', category_id, 'icons/cat-icon.webp')
     ]
 
     for name, cat_id, image_url in subcategories:
