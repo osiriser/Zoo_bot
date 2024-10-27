@@ -15,7 +15,8 @@ async def populate_categories():
         ('Hamster', 'icons/hamster-icon.webp'),
         ('Bird', 'icons/bird-icon.png'),
         ('Fish', 'icons/fish-icon.png'),
-        ('Horse', 'icons/horse.png')
+        ('Horse', 'icons/horse.png'),
+        ('Cat', 'icons/cat-icon.webp')
     ]
 
     for name, image_url in categories:
