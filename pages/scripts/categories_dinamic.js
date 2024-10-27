@@ -36,7 +36,7 @@ function displayItems(items, type) {
 
     items.forEach(item => {
         const itemDiv = document.createElement("div");
-        itemDiv.className = "grid-item";
+        itemDiv.className = "grid-item"; // Присваиваем класс для стилизации
         itemDiv.onclick = () => handleItemClick(type, item.id);
 
         const img = document.createElement("img");
@@ -51,3 +51,4 @@ function displayItems(items, type) {
         container.appendChild(itemDiv);
     });
 }
+
