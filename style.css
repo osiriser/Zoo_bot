@@ -81,7 +81,7 @@ s
 
 /* Стили для карточек */
 .card {
-    min-width: 100%;  
+    max-width: 100%;  
     /* height: 50%;  Высота карточки */
     background-color: #f6f6f6;  /* Цвет фона карточки */
     display: flex;  /* Flex для центрирования текста */
