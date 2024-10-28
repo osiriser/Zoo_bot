@@ -188,8 +188,8 @@ h2 {
 
 
 .grid-item {
-    width: 70%; /* Width set to occupy 25% of the container */
-    height: 0;
+    width: 75%; /* Width set to occupy 25% of the container */
+    height: 75%;
     position: relative;
     background-color: #f5f5f5;
     padding: 20px;
