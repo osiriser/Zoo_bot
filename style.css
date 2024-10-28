@@ -181,15 +181,15 @@ h2 {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряд */
-    gap: 15%; /* Расстояние между карточками */
+    gap: 12%; /* Расстояние между карточками */
     width: 90%; /* Ограничиваем ширину контейнера */
     margin: 0;
 }
 
 
 .grid-item {
-    width: 80%; /* Width set to occupy 25% of the container */
-    height: 80%;
+    width: 85%; /* Width set to occupy 25% of the container */
+    height: 85%;
     position: relative;
     background-color: #f5f5f5;
     padding: 25%;
