@@ -188,8 +188,8 @@ h2 {
 
 
 .grid-item {
-    width: 75px; /* Фиксированная ширина */
-    height: 75px;
+    width: 25%; /* Width set to occupy 25% of the container */
+    height: 0;
     position: relative;
     background-color: #f5f5f5;
     padding: 20px;
