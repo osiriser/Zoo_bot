@@ -14,7 +14,7 @@ async def create_table():
                         CREATE TABLE categories (
                             id SERIAL PRIMARY KEY,
                             name VARCHAR(255) NOT NULL,
-                            image_url VARCHAR(255)  -- путь к изображению категории
+                            image_path VARCHAR(255)  -- путь к изображению категории
                         );
                     """)
 
@@ -25,7 +25,7 @@ async def create_table():
                             id SERIAL PRIMARY KEY,
                             category_id INT REFERENCES categories(id),
                             name VARCHAR(255) NOT NULL,
-                            image_url VARCHAR(255)
+                            image_path VARCHAR(255)
                         );
                     """)
 
@@ -37,7 +37,7 @@ async def create_table():
                             subcategory_id INT REFERENCES subcategories(id),
                             name VARCHAR(255) NOT NULL,
                             price DECIMAL(10, 2),
-                            image_url VARCHAR(255)  -- путь к изображению товара
+                            image_path VARCHAR(255)  -- путь к изображению товара
                         );
                     """)
 
