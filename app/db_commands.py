@@ -118,3 +118,22 @@ async def get_products(subcategory_id):
     await conn.close()
     products = [{"id": row["id"], "name": row["name"], "image_url": row["image_url"]} for row in rows]
     return products
+
+
+async def add_category(name, image_path):
+    conn = await connect()
+    query = "INSERT INTO categories (name, image_path) VALUES ($1, $2)"
+    await conn.execute(query, name, image_path)
+    await conn.close()
+
+async def add_subcategory(name, image_path, category_id):
+    conn = await connect()
+    query = "INSERT INTO subcategories (name, image_path, category_id) VALUES ($1, $2, $3)"
+    await conn.execute(query, name, image_path, category_id)
+    await conn.close()
+
+async def add_product(name, image_path, price, subcategory_id):
+    conn = await connect()
+    query = "INSERT INTO products (name, image_path, price, category_id) VALUES ($1, $2, $3, $4)"
+    await conn.execute(query, name, image_path, price, subcategory_id)
+    await conn.close()

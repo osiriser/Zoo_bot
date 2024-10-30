@@ -35,7 +35,7 @@ body, html {
 }
 
 .gallery img {
-    width: 99%;
+    width: 95%;
     max-width: 600px;
     border-radius: 10px;
     object-fit: cover;
@@ -120,10 +120,10 @@ body, html {
 }
 
 .add-to-cart-button {
-    background-color: #800080;
+    background-color: #4CAF50;
     color: #fff;
 }
 
 .add-to-cart-button:hover {
-    background-color: #800080;
+    background-color: #45a049;
 }
