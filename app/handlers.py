@@ -47,14 +47,14 @@ async def command_start_handler(message: Message, command: CommandObject):
 
 
 @router.callback_query(F.data == 'add_category')
-async def add_category_button(callback: CallbackQuery):
-    await AddCategoryStates.waiting_for_name.set_state()
+async def add_category_button(callback: CallbackQuery, state: FSMContext):
+    await state.set_state(AddCategoryStates.waiting_for_name)
     await callback.bot.send_message("Please send a category name")
 
 @router.message(AddCategoryStates.waiting_for_name)
 async def process_waiting_for_name(message: Message, state: FSMContext):
     await state.update_data(waiting_for_name=message.text)
-    await AddCategoryStates.waiting_for_photo.set_state()
+    await state.set_state(AddCategoryStates.waiting_for_photo)
     await message.reply("Please send a category photo")
 
 @router.message(AddCategoryStates.waiting_for_photo)
