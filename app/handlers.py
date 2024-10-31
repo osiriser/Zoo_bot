@@ -67,7 +67,8 @@ async def process_waiting_for_photo(message: Message, state: FSMContext):
     file = await message.bot.get_file(file_id)
     file_path = f"/home/developer/Zoo_bot/icons/{name_category}.jpg"  # Путь, куда сохраняем
 
-    await photo.download(destination_file=file_path)  # Сохраняем файл
+    #await photo.download(destination_file=file_path)  # Сохраняем файл
+    await message.bot.download_file(file_path=file_path)
     await state.update_data(image_path=file_path)
     await db_commands.add_category(name_category, file_path)
     await message.reply("Success!")
