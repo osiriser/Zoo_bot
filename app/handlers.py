@@ -72,4 +72,3 @@ async def process_waiting_for_photo(message: Message, state: FSMContext):
     await db_commands.add_category(name_category, file_path)
     await message.reply("Success!")
     await state.clear()
-
