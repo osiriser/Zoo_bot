@@ -9,9 +9,10 @@ async def start_keyboard():
 
 
 async def admin_keyboard():
-    admin_menu = InlineKeyboardMarkup(row_width=2)
+    admin_menu = InlineKeyboardMarkup(row_width=1)
     admin_menu.add(
         InlineKeyboardButton("Add a category", callback_data="add_category"),
         InlineKeyboardButton("Add a subcategory", callback_data="add_subcategory"),
         InlineKeyboardButton("Add a product", callback_data="add_product")
     )
+    return admin_menu
