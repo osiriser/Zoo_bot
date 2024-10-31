@@ -49,7 +49,7 @@ async def command_start_handler(message: Message, command: CommandObject):
 @router.callback_query(F.data == 'add_category')
 async def add_category_button(callback: CallbackQuery, state: FSMContext):
     await state.set_state(AddCategoryStates.waiting_for_name)
-    await callback.bot.send_message(text="Please send a category name")
+    await callback.message.edit_text(text="Please send a category name")
 
 @router.message(AddCategoryStates.waiting_for_name)
 async def process_waiting_for_name(message: Message, state: FSMContext):
