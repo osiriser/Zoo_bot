@@ -100,23 +100,23 @@ async def get_tasks_status(telegram_id):
 
 async def get_categories():
     conn = await connect()
-    rows = await conn.fetch("SELECT id, name, image_url FROM categories")
+    rows = await conn.fetch("SELECT id, name, image_path FROM categories")
     await conn.close()
-    categories = [{"id": row["id"], "name": row["name"], "image_url": row["image_url"]} for row in rows]
+    categories = [{"id": row["id"], "name": row["name"], "image_path": row["image_path"]} for row in rows]
     return categories
 
 async def get_subcategories(category_id):
     conn = await connect()
-    rows = await conn.fetch("SELECT id, name, image_url FROM subcategories WHERE category_id = $1", int(category_id))
+    rows = await conn.fetch("SELECT id, name, image_path FROM subcategories WHERE category_id = $1", int(category_id))
     await conn.close()
-    subcategories = [{"id": row["id"], "name": row["name"], "image_url": row["image_url"]} for row in rows]
+    subcategories = [{"id": row["id"], "name": row["name"], "image_path": row["image_path"]} for row in rows]
     return subcategories
 
 async def get_products(subcategory_id):
     conn = await connect()
-    rows = await conn.fetch("SELECT id, name, image_url FROM products WHERE subcategory_id = $1", int(subcategory_id))
+    rows = await conn.fetch("SELECT id, name, image_path FROM products WHERE subcategory_id = $1", int(subcategory_id))
     await conn.close()
-    products = [{"id": row["id"], "name": row["name"], "image_url": row["image_url"]} for row in rows]
+    products = [{"id": row["id"], "name": row["name"], "image_path": row["image_path"]} for row in rows]
     return products
 
 
