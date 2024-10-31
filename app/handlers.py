@@ -57,7 +57,7 @@ async def process_waiting_for_name(message: Message, state: FSMContext):
     await AddCategoryStates.waiting_for_photo.set_data()
     await message.reply("Please send a category photo")
 
-@router.message(AddCategoryStates.waiting_for_photo, content_types=types.ContentType.PHOTO)
+@router.message(AddCategoryStates.waiting_for_photo)
 async def process_waiting_for_photo(message: Message, state: FSMContext):
     data = await state.get_data()
     name_category = data["waiting_for_name"]
