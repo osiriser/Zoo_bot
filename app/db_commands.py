@@ -137,3 +137,10 @@ async def add_product(name, image_path, price, subcategory_id):
     query = "INSERT INTO products (name, image_path, price, category_id) VALUES ($1, $2, $3, $4)"
     await conn.execute(query, name, image_path, price, subcategory_id)
     await conn.close()
+
+async def get_categories_without_path():
+    conn = await connect()
+    rows = await conn.fetch("SELECT id, name FROM categories")
+    await conn.close()
+    categories = [{"id": row["id"], "name": row["name"]} for row in rows]
+    return categories
