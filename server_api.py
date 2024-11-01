@@ -55,6 +55,7 @@ async def get_tasks_status():
 @app.route('/api/categories')
 async def get_categories():
     categories = await db_commands.get_categories()
+    print(categories) 
     return jsonify(categories)
 
 # Маршрут для получения подкатегорий
