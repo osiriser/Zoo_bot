@@ -62,7 +62,7 @@ async def process_waiting_for_photo(message: Message, state: FSMContext):
     data = await state.get_data()
     name_category = data["waiting_for_name"]
     
-    photo = message.photo[-1]  # Берем фото с наибольшим разрешением
+    photo = message.document  # Берем фото с наибольшим разрешением
     file_id = photo.file_id
     file = await message.bot.get_file(file_id)
     
