@@ -40,7 +40,7 @@ function displayItems(items, type) {
         itemDiv.onclick = () => handleItemClick(type, item.id);
 
         const img = document.createElement("img");
-        img.src = item.image_url;
+        img.src = item.image_path;
         img.alt = item.name;
 
         const title = document.createElement("p");
