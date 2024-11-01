@@ -82,15 +82,17 @@ async def process_waiting_for_photo(message: Message, state: FSMContext):
 @router.callback_query(F.data == 'add_subcategory')
 async def add_subcategory_button(callback: CallbackQuery, state: FSMContext):
     await state.set_state(AddSubcategoryStates.waiting_for_category_id)
-    await callback.message.answer(text="Please choose a category and send number")
+    await callback.message.answer(text="Please choose a category id and send number")
     categories = await db_commands.get_categories_without_path()
-    await callback.message.answer(text=f"{categories}")
+    categories_text = "\n".join([f"{category['id']}. {category['name']}" for category in categories])
+
+    await callback.message.answer(f"List of categories:\n{categories_text}")
 
 @router.message(AddSubcategoryStates.waiting_for_category_id)
 async def process_waiting_for_category_id(message: Message, state: FSMContext):
     await state.update_data(waiting_for_category_id=message.text)
     await state.set_state(AddSubcategoryStates.waiting_for_name)
-    await message.reply(text="Please send a category name")
+    await message.reply(text="Please send a subcategory name")
 
 @router.message(AddSubcategoryStates.waiting_for_name)
 async def process_waiting_for_name_subcategory(message: Message, state: FSMContext):
