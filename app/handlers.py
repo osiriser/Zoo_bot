@@ -162,7 +162,7 @@ async def process_photo1(message: Message, state: FSMContext):
     file_id = photo.file_id
     file = await message.bot.get_file(file_id)
     data = await state.get_data()
-    name_product = data["name"]
+    name_product = data["waiting_for_name"]
     # Получаем исходное расширение файла
     file_extension = file.file_path.split('.')[-1]
     file_path = f"/home/developer/Zoo_bot/icons/{name_product}1.{file_extension}"  # Путь с расширением
