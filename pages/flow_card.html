@@ -79,11 +79,14 @@
 ;
                 document.getElementById('product-description').textContent = productData.description;
                 const gallery = document.getElementById('product-images');
-                const img = document.createElement('img');
-                img.src = productData.image_path;
-                img.src = productData.image_path2;
-                img.src = productData.image_path3;
-                gallery.appendChild(img);
+                gallery.innerHTML = '';
+                const images = [productData.image_path, productData.image_path2, productData.image_path3];
+                images.forEach(imgPath => {
+                const img = document.createElement('img'); // Создаем новое изображение для каждого пути
+                img.src = imgPath; // Устанавливаем путь к изображению
+                img.alt = productData.name; // Устанавливаем альтернативный текст
+                gallery.appendChild(img); // Добавляем изображение в галерею
+            });
             }
         });
         function goBack() {
