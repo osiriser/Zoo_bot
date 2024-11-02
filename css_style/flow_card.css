@@ -35,7 +35,7 @@ body, html {
 }
 
 .gallery img {
-    width: 99%;
+    width: 100%;
     max-width: 600px;
     border-radius: 10px;
     object-fit: cover;
