@@ -132,10 +132,13 @@ async def add_subcategory(name, image_path, category_id):
     await conn.execute(query, name, image_path, category_id)
     await conn.close()
 
-async def add_product(name, image_path, price, subcategory_id):
+async def add_product(category_id, subcategory_id, name, price, image_path, image_path2, image_path3, description):
     conn = await connect()
-    query = "INSERT INTO products (name, image_path, price, category_id) VALUES ($1, $2, $3, $4)"
-    await conn.execute(query, name, image_path, price, subcategory_id)
+    query = """
+        INSERT INTO products (name, image_path, image_path2, image_path3, price, description, category_id, subcategory_id)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+    """
+    await conn.execute(query, name, image_path, image_path2, image_path3, price, description, category_id, subcategory_id)
     await conn.close()
 
 async def get_categories_without_path():
@@ -144,3 +147,10 @@ async def get_categories_without_path():
     await conn.close()
     categories = [{"id": row["id"], "name": row["name"]} for row in rows]
     return categories
+
+async def get_subcategories_without_path():
+    conn = await connect()
+    rows = await conn.fetch("SELECT id, name FROM subcategories")
+    await conn.close()
+    subcategories = [{"id": row["id"], "name": row["name"]} for row in rows]
+    return subcategories
