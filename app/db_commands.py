@@ -132,13 +132,13 @@ async def add_subcategory(name, image_path, category_id):
     await conn.execute(query, name, image_path, category_id)
     await conn.close()
 
-async def add_product(category_id, subcategory_id, name, price, image_path, image_path2, image_path3, description):
+async def add_product(category_id, subcategory_id, waiting_for_name, price, image_path, image_path2, image_path3, description):
     conn = await connect()
     query = """
         INSERT INTO products (name, image_path, image_path2, image_path3, price, description, category_id, subcategory_id)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
     """
-    await conn.execute(query, name, image_path, image_path2, image_path3, price, description, category_id, subcategory_id)
+    await conn.execute(query, waiting_for_name, image_path, image_path2, image_path3, price, description, category_id, subcategory_id)
     await conn.close()
 
 async def get_categories_without_path():
