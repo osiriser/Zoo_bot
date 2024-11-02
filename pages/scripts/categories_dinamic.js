@@ -28,7 +28,7 @@ function handleItemClick(type, id) {
             });
     } else if (type === "product") {
         // Загружаем данные товара
-        fetch(<code>/api/products/${id}</code>)
+        fetch(`/api/products/${id}`)
             .then(response => response.json())
             .then(product => {
                 if (!product.error) {
