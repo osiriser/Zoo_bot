@@ -80,13 +80,20 @@
                 document.getElementById('product-description').textContent = productData.description;
                 const gallery = document.getElementById('product-images');
                 gallery.innerHTML = '';
-                const images = [productData.image_path, productData.image_path2, productData.image_path3];
-                images.forEach(imgPath => {
-                const img = document.createElement('img'); // Создаем новое изображение для каждого пути
-                img.src = imgPath.replace('/pages/icons/', '/icons/');  // Устанавливаем путь к изображению
-                img.alt = productData.name; // Устанавливаем альтернативный текст
-                gallery.appendChild(img); // Добавляем изображение в галерею
-            });
+                const img1 = document.createElement('img');
+                img1.src = productData.image_path;
+                img1.alt = productData.name;
+                gallery.appendChild(img1);
+
+                const img2 = document.createElement('img');
+                img2.src = productData.image_path2;
+                img2.alt = productData.name;
+                gallery.appendChild(img2);
+
+                const img3 = document.createElement('img');
+                img3.src = productData.image_path3;
+                img3.alt = productData.name;
+                gallery.appendChild(img3);
             }
         });
         function goBack() {
