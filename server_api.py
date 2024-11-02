@@ -71,5 +71,12 @@ async def get_products():
     products = await db_commands.get_products(subcategory_id)
     return jsonify(products)
 
+@app.route('/api/products/<int:product_id>', methods=['GET'])
+async def fetch_product(product_id):
+    product = await db_commands.get_product(product_id)
+    if product:
+        return jsonify(product), 200
+    return jsonify({"error": "Product not found"}), 404
+
 if __name__ == "__main__":
     app.run(debug=True)

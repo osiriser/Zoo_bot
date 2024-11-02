@@ -26,7 +26,19 @@ function handleItemClick(type, id) {
             .then(products => {
                 displayItems(products, "product");
             });
-    }
+    } else if (type === "product") {
+        // Загружаем данные товара
+        fetch(<code>/api/products/${id}</code>)
+            .then(response => response.json())
+            .then(product => {
+                if (!product.error) {
+                    // Перенаправление на страницу товара с данными
+                    localStorage.setItem('productData', JSON.stringify(product));  // Сохраняем данные о продукте
+                    window.location.href = 'pages/flow_card.html';
+                } else {
+                    alert(product.error);
+                }
+            })}
 }
 
 // Отображение элементов (категорий, подкатегорий или товаров)
