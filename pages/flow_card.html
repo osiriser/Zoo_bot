@@ -83,7 +83,7 @@
                 const images = [productData.image_path, productData.image_path2, productData.image_path3];
                 images.forEach(imgPath => {
                 const img = document.createElement('img'); // Создаем новое изображение для каждого пути
-                img.src = imgPath; // Устанавливаем путь к изображению
+                img.src = imgPath.replace('/pages/icons/', '/icons/');  // Устанавливаем путь к изображению
                 img.alt = productData.name; // Устанавливаем альтернативный текст
                 gallery.appendChild(img); // Добавляем изображение в галерею
             });
