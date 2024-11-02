@@ -146,7 +146,7 @@ async def process_subcategory_id(message: Message, state: FSMContext):
 
 @router.message(AddProductStates.waiting_for_name)
 async def process_product_name(message: Message, state: FSMContext):
-    await state.update_data(name=message.text)
+    await state.update_data(waiting_for_name=message.text)
     await state.set_state(AddProductStates.waiting_for_price)
     await message.reply("Please send the price of product:")
 
@@ -162,7 +162,7 @@ async def process_photo1(message: Message, state: FSMContext):
     file_id = photo.file_id
     file = await message.bot.get_file(file_id)
     data = await state.get_data()
-    name_product = data["waiting_for_name"]
+    name_product = data["name"]
     # Получаем исходное расширение файла
     file_extension = file.file_path.split('.')[-1]
     file_path = f"/home/developer/Zoo_bot/icons/{name_product}1.{file_extension}"  # Путь с расширением
@@ -174,7 +174,7 @@ async def process_photo1(message: Message, state: FSMContext):
     await message.reply("Please send second photo as file")
 
 @router.message(AddProductStates.waiting_for_photo2)
-async def process_photo1(message: Message, state: FSMContext):
+async def process_photo2(message: Message, state: FSMContext):
     photo = message.document  # Берем фото с наибольшим разрешением
     file_id = photo.file_id
     file = await message.bot.get_file(file_id)
@@ -191,7 +191,7 @@ async def process_photo1(message: Message, state: FSMContext):
     await message.reply("Please send third photo as file")
 
 @router.message(AddProductStates.waiting_for_photo3)
-async def process_photo1(message: Message, state: FSMContext):
+async def process_photo3(message: Message, state: FSMContext):
     photo = message.document  # Берем фото с наибольшим разрешением
     file_id = photo.file_id
     file = await message.bot.get_file(file_id)
