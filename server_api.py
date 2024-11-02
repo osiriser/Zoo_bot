@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import asyncpg
 from app import db_commands
 app = Flask(__name__)
 
