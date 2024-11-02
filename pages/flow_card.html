@@ -75,7 +75,7 @@
             const productData = JSON.parse(localStorage.getItem('productData'));
             if (productData) {
                 document.getElementById('product-title').textContent = productData.name;
-                document.getElementById('product-price').textContent = productData.price;
+                document.getElementById('product-price').textContent = productData.price + "$";
 ;
                 // document.getElementById('product-description').innerHTML = productData.description;
                 const formattedDescription = productData.description.replace(/•/g, '&bull;') // замените маркер списка
