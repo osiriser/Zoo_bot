@@ -154,3 +154,22 @@ async def get_subcategories_without_path():
     await conn.close()
     subcategories = [{"id": row["id"], "name": row["name"]} for row in rows]
     return subcategories
+
+
+async def get_product(product_id):
+    conn = await connect()
+    row = await conn.fetchrow("SELECT id, name, image_path, image_path2, image_path3, description, price FROM products WHERE id = $1", int(product_id))
+    await conn.close()
+    
+    if row:
+        product = {
+            "id": row["id"],
+            "name": row["name"],
+            "image_path": row["image_path"],
+            "image_path2": row["image_path2"],
+            "image_path3": row["image_path3"],
+            "description": row["description"],
+            "price": row["price"]
+        }
+        return product
+    return None

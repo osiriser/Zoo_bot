@@ -70,3 +70,26 @@
             <button class="add-to-cart-button">Add to Cart</button>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productData = JSON.parse(localStorage.getItem('productData'));
+            if (productData) {
+                document.getElementById('product-title').textContent = productData.name;
+                document.getElementById('product-price').textContent = productData.price;
+;
+                document.getElementById('product-description').textContent = productData.description;
+                const gallery = document.getElementById('product-images');
+                const img = document.createElement('img');
+                img.src = productData.image_path;
+                img.src = productData.image_path2;
+                img.src = productData.image_path3;
+                gallery.appendChild(img);
+            }
+        });
+        function goBack() {
+            // Здесь можно добавить код для возврата на предыдущую страницу
+            history.back();
+        }
+    </script>
+</body>
+</html>
