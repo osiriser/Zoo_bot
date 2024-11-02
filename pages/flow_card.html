@@ -77,7 +77,14 @@
                 document.getElementById('product-title').textContent = productData.name;
                 document.getElementById('product-price').textContent = productData.price;
 ;
-                document.getElementById('product-description').textContent = productData.description;
+                // document.getElementById('product-description').innerHTML = productData.description;
+                const formattedDescription = productData.description.replace(/•/g, '&bull;') // замените маркер списка
+                .replace(/(?:\r\n|\r|\n)/g, '') // замените новый ряд на 
+                .replace(/(.*?\.)/g, '<p>$1</p>'); // разделите предложения в <p>
+                document.getElementById('product-description').innerHTML = formattedDescription;
+
+// Вставка отформатированного текста в элемент
+document.getElementById('product-description').innerHTML = formattedDescription;
                 const gallery = document.getElementById('product-images');
                 gallery.innerHTML = '';
                 
