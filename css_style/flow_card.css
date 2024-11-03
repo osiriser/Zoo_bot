@@ -28,6 +28,7 @@ body, html {
     scroll-snap-type: x mandatory;
     gap: 15px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .gallery::-webkit-scrollbar {
