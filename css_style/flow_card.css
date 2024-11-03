@@ -28,8 +28,8 @@ body, html {
     scroll-snap-type: x mandatory;
     gap: 15px;
     margin-bottom: 20px;
-    width: 100vw; /* Устанавливаем галерею на всю ширину экрана */
-    max-width: 100vw;
+    width: 100%; /* Устанавливаем галерею на всю ширину экрана */
+    max-width: 100%;
 }
 
 .gallery::-webkit-scrollbar {
@@ -37,8 +37,8 @@ body, html {
 }
 
 .gallery img {
-    width: 100vw;
-    min-width: 100vw;
+    width: 100%;
+    min-width: 100%;
     border-radius: 10px;
     height: auto;
     object-fit: cover;
