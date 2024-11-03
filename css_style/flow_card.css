@@ -38,6 +38,7 @@ body, html {
     width: 100%;
     max-width: 600px;
     border-radius: 10px;
+    height: auto;
     object-fit: cover;
     scroll-snap-align: center;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
