@@ -173,3 +173,14 @@ async def get_product(product_id):
         }
         return product
     return None
+
+
+async def add_product_cart(user_id, product_id, product_name, product_image, product_price, quantity):
+    conn = await connect()
+    await conn.execute("""
+            INSERT INTO cart (user_id, product_id, product_name, product_image, product_price, quantity)
+            VALUES ($1, $2, $3, $4, $5, $6)
+        """, user_id, product_id, product_name, product_image, product_price, quantity)
+    
+    conn.close()
+    return True

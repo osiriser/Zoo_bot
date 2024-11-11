@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, session
 from app import db_commands
 app = Flask(__name__)
 
@@ -77,6 +77,21 @@ async def fetch_product(product_id):
     if product:
         return jsonify(product), 200
     return jsonify({"error": "Product not found"}), 404
+
+@app.route('/api/add-to-cart', methods=['POST'])
+async def add_to_cart():
+    data = request.json
+    user_id = data['user_id']
+    product_id = data['product_id']
+    product_name = data['product_name']
+    product_image = data['product_image']
+    product_price = data['product_price']
+    quantity = data.get('quantity', 1)  # default quantity is 1
+    
+    add_product = await db_commands.add_product_cart(user_id, product_id, product_name, product_image, product_price, quantity)
+
+    if add_product:
+        return jsonify({'success': True})
 
 if __name__ == "__main__":
     app.run(debug=True)
