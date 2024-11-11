@@ -80,14 +80,19 @@ async def fetch_product(product_id):
 
 @app.route('/api/add-to-cart', methods=['POST'])
 async def add_to_cart():
-    data = request.json
-    user_id = data['user_id']
-    product_id = data['product_id']
-    product_name = data['product_name']
-    product_image = data['product_image']
-    product_price = data['product_price']
-    quantity = data.get('quantity', 1)  # default quantity is 1
-    
+    # data = request.json
+    # user_id = data['user_id']
+    # product_id = data['product_id']
+    # product_name = data['product_name']
+    # product_image = data['product_image']
+    # product_price = data['product_price']
+    # quantity = data.get('quantity', 1)  # default quantity is 1
+    user_id = request.form.get('user_id')
+    product_id = request.form.get('product_id')
+    product_name = request.form.get('product_name')
+    product_image = request.form.get('product_image')
+    product_price = request.form.get('product_price')
+    quantity = request.form.get('product_image', 1)
     add_product = await db_commands.add_product_cart(user_id, product_id, product_name, product_image, product_price, quantity)
 
     if add_product:
