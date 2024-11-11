@@ -30,5 +30,4 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
             alert('Failed to add product to cart.');
         }
     })
-    .catch(error => console.error('Error:', error));
 });
