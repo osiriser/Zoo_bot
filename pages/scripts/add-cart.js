@@ -8,19 +8,19 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
       // Replace with the actual user ID from your session or state management
     const quantity = 1;  // Assuming a default quantity of 1 for now
 
+    const data = {
+        product_id: productId,
+        product_name: productName,
+        product_image: productImage,
+        user_id: userId,
+        product_price: productPrice,
+        quantity: quantity
+    };
+
     fetch('/api/add-to-cart', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            product_id: productId,
-            product_name: productName,
-            product_image: productImage,
-            user_id: userId,
-            product_price: productPrice,
-            quantity: quantity
-        })
+        body: JSON.stringify(data) // Преобразуем объект в JSON
+    })
     })
     .then(response => response.json())
     .then(data => {
@@ -30,4 +30,3 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
             alert('Failed to add product to cart.');
         }
     })
-});
