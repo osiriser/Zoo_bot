@@ -1,53 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Product Page</title>
-    <link rel="stylesheet" href="../css_style/flow_card.css">
-</head>
-<body>
-    <div class="product-page">
-        <div class="gallery">
-            <img src="../icons/cat-house.png" alt="Product Image">
-            <img src="../icons/cat-food.png" alt="Product Image 2">
-            <img src="../icons/cat-toy.png" alt="Product Image 3">
-        </div>
-
-        <div class="under-gallery">
-            <img src="../icons/cat-house.png" alt="Product Thumbnail">
-            <img src="../icons/cat-food.png" alt="Product Thumbnail">
-            <img src="../icons/cat-toy.png" alt="Product Thumbnail">
-        </div>
-
-        <h2 class="product-price">13$</h2>
-        <h1 class="product-title">Cat Mouse Toy</h1>
-
-        <section class="product-description">
-            <h3>Description</h3>
-            <p>It is a good gift for your pet.</p>
-        </section>
-
-        <section class="product-details">
-            <h3>Compound</h3>
-            <p>Plastic</p>
-        </section>
-
-        <section class="product-characteristics">
-            <h3>Characteristics</h3>
-            <p>Width: 12 cm, Height: 23 cm</p>
-        </section>
-
-        <div class="button-container">
-            <button class="back-button">Back to Subcategory</button>
-            <button class="add-to-cart-button">Add to Cart</button>
-        </div>
-    </div>
-</body>
-</html> -->
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,13 +11,16 @@
         <div class="gallery" id="product-images">
             <!-- Изображения будут загружены динамически -->
         </div>
+        <input type="hidden" id="user_id" value="">
+        <script src="scripts/user_id.js"></script>
         <div class="under-gallery" id="product-images2"></div>
         <h1 class="product-title" id="product-title"></h1>
         <h2 class="product-price" id="product-price"></h2>
         <section class="product-description" id="product-description"></section>
         <div class="button-container">
-            <button class="back-button" onclick="goBack()">Back to Subcategory</button>
+            <button class="back-button" onclick="goBack()">Back to Menu</button>
             <button class="add-to-cart-button">Add to Cart</button>
+            <script src="scripts/add-cart.js"></script>
         </div>
     </div>
     <script>
