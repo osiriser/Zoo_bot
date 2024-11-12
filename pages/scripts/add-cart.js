@@ -30,4 +30,4 @@ document.querySelector('add-to-cart-button').addEventListener('click', () => {
         } else {
             alert('Failed to add product to cart.');
         }
-    })
+    })})
