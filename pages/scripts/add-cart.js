@@ -1,33 +1,62 @@
-document.querySelector('.add-to-cart-button').addEventListener('click', () => {
-    const productData = JSON.parse(localStorage.getItem('productData'));
-    const productId = productData.id;
-    const productImage = productData.image;
-    const productName = document.getElementById('product-title').textContent;
-    const userId = document.getElementById('user_id').textContent;
-    const productPrice = productData.price;
-      // Replace with the actual user ID from your session or state management
-    const quantity = 1;  // Assuming a default quantity of 1 for now
+// document.querySelector('.add-to-cart-button').addEventListener('click', () => {
+//     const productData = JSON.parse(localStorage.getItem('productData'));
+//     const productId = productData.id;
+//     const productImage = productData.image;
+//     const productName = document.getElementById('product-title').textContent;
+//     const userId = document.getElementById('user_id').textContent;
+//     const productPrice = productData.price;
+//       // Replace with the actual user ID from your session or state management
+//     const quantity = 1;  // Assuming a default quantity of 1 for now
 
-    const data = {
-        product_id: productId,
-        product_name: productName,
-        product_image: productImage,
-        user_id: userId,
-        product_price: productPrice,
-        quantity: quantity
-    };
+//     const data = {
+//         product_id: productId,
+//         product_name: productName,
+//         product_image: productImage,
+//         user_id: userId,
+//         product_price: productPrice,
+//         quantity: quantity
+//     };
 
-    fetch(`/api/add-to-cart`)
-    //     , {
-    //     method: 'POST',
-    //     body: JSON.stringify(data) // Преобразуем объект в JSON
-    // })
-    // })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Product added to cart!');
-        } else {
-            alert('Failed to add product to cart.');
-        }
-    })})
+//     fetch(`/api/add-to-cart`)
+//     //     , {
+//     //     method: 'POST',
+//     //     body: JSON.stringify(data) // Преобразуем объект в JSON
+//     // })
+//     // })
+//     .then(response => response.json())
+//     .then(data => {
+//         if (data.success) {
+//             alert('Product added to cart!');
+//         } else {
+//             alert('Failed to add product to cart.');
+//         }
+//     })})
+
+
+
+
+    document.querySelector('.add-to-cart-button').addEventListener('click', () => {
+        const productData = JSON.parse(localStorage.getItem('productData'));
+        const productId = productData.id;
+        const productImage = productData.image;
+        const productName = document.getElementById('product-title').textContent;
+        const userId = document.getElementById('user_id').textContent;
+        const productPrice = productData.price;
+        const quantity = 1;  // Assuming a default quantity of 1 for now
+    
+        // Using URLSearchParams to format data for sending
+        const data = new URLSearchParams({
+            product_id: productId,
+            product_name: productName,
+            product_image: productImage,
+            user_id: userId,
+            product_price: productPrice,
+            quantity: quantity
+        });
+    
+        console.log('Sending product data:', data.toString());
+    
+        // Using navigator.sendBeacon to send data to the server
+        navigator.sendBeacon("/api/add-to-cart", data);
+    });
+    
