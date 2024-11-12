@@ -1,4 +1,4 @@
-document.querySelector('add-to-cart-button').addEventListener('click', () => {
+document.querySelector('.add-to-cart-button').addEventListener('click', () => {
     const productData = JSON.parse(localStorage.getItem('productData'));
     const productId = productData.id;
     const productImage = productData.image;
