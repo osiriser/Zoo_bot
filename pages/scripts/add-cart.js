@@ -1,4 +1,4 @@
-document.querySelector('.add-to-cart-button').addEventListener('click', () => {
+document.querySelector('add-to-cart-button').addEventListener('click', () => {
     const productData = JSON.parse(localStorage.getItem('productData'));
     const productId = productData.id;
     const productImage = productData.image;
@@ -17,11 +17,12 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
         quantity: quantity
     };
 
-    fetch('/api/add-to-cart', {
-        method: 'POST',
-        body: JSON.stringify(data) // Преобразуем объект в JSON
-    })
-    })
+    fetch(`/api/add-to-cart`)
+    //     , {
+    //     method: 'POST',
+    //     body: JSON.stringify(data) // Преобразуем объект в JSON
+    // })
+    // })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
