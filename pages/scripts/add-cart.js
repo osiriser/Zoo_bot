@@ -5,8 +5,7 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
     const productName = document.getElementById('product-title').textContent;
     const userId = document.getElementById('user_id').textContent;
     const productPrice = productData.price;
-      // Replace with the actual user ID from your session or state management
-    const quantity = 1;  // Assuming a default quantity of 1 for now
+    const quantity = 1;  // Предполагается, что количество по умолчанию равно 1
 
     const data = {
         product_id: productId,
@@ -17,11 +16,25 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
         quantity: quantity
     };
 
-    fetch('https://appminimall.xyz/api/add-to-cart', { method: 'post', headers:{
-        'Content-Type': 'application/json'
-    }, body: data}).then(fetcheddata => {
-    fetcheddata.json().then(jsondata => {
-        if(jsondata.success) console.log("товар успешно добавлен в корзину");
-    }
-    )})
-})
+    fetch('https://appminimall.xyz/api/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        // Преобразуйте объект в строку JSON
+        body: JSON.stringify(data)
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    }).then(jsondata => {
+        if (jsondata.success) {
+            console.log("товар успешно добавлен в корзину");
+        } else {
+            console.log("Не удалось добавить товар в корзину:", jsondata);
+        }
+    }).catch(error => {
+        console.error('Ошибка:', error);
+    });
+});
