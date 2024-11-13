@@ -17,7 +17,7 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
         quantity: quantity
     };
 
-    fetch('api/add-to-cart', { method: 'post', body: data }).then(fetcheddata => {
+    fetch('https://appminimall.xyz/api/add-to-cart', { method: 'post', body: data }).then(fetcheddata => {
     fetcheddata.json().then(jsondata => {
         if(jsondata.success) console.log("товар успешно добавлен в корзину");
     }
