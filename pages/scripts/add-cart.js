@@ -1,11 +1,20 @@
 document.querySelector('.add-to-cart-button').addEventListener('click', () => {
     const productData = JSON.parse(localStorage.getItem('productData'));
-    const productId = productData.id;
-    const productImage = productData.image;
-    const productName = document.getElementById('product-title').textContent;
-    const userId = document.getElementById('user_id').textContent;
-    const productPrice = productData.price;
-    const quantity = 1;  // Предполагается, что количество по умолчанию равно 1
+    console.log("Product Data from localStorage:", productData);
+    
+    const productId = productData?.id;
+    const productImage = productData?.image;
+    const productName = document.getElementById('product-title')?.textContent;
+    const userId = document.getElementById('user_id')?.textContent;
+    const productPrice = productData?.price;
+    const quantity = 1;
+
+    // Log values for debugging
+    console.log("Product ID:", productId);
+    console.log("Product Image:", productImage);
+    console.log("Product Name:", productName);
+    console.log("User ID:", userId);
+    console.log("Product Price:", productPrice);
 
     const data = {
         product_id: productId,
@@ -21,20 +30,22 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
         headers: {
             'Content-Type': 'application/json'
         },
-        // Преобразуйте объект в строку JSON
         body: JSON.stringify(data)
-    }).then(response => {
+    })
+    .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
-    }).then(jsondata => {
+    })
+    .then(jsondata => {
         if (jsondata.success) {
-            console.log("товар успешно добавлен в корзину");
+            console.log("Product successfully added to cart");
         } else {
-            console.log("Не удалось добавить товар в корзину:", jsondata);
+            console.log("Failed to add product to cart:", jsondata);
         }
-    }).catch(error => {
-        console.error('Ошибка:', error);
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 });
