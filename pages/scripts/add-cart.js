@@ -3,9 +3,9 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
     console.log("Product Data from localStorage:", productData);
     
     const productId = productData?.id;
-    const productImage = productData?.image;
+    const productImage = productData?.image_path;
     const productName = document.getElementById('product-title')?.textContent;
-    const userId = document.getElementById('user_id')?.textContent;
+    const userId = document.getElementById('user_id')?.value;
     const productPrice = productData?.price;
     const quantity = 1;
 
