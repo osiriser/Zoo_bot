@@ -17,17 +17,9 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
         quantity: quantity
     };
 
-    fetch(`/api/add-to-cart`)
-    //     , {
-    //     method: 'POST',
-    //     body: JSON.stringify(data) // Преобразуем объект в JSON
-    // })
-    // })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Product added to cart!');
-        } else {
-            alert('Failed to add product to cart.');
-        }
-    })})
+    fetch('api/add-to-cart', { method: 'post', body: data }).then(fetcheddata => {
+    fetcheddata.json().then(jsondata => {
+        if(jsondata.success) console.log("товар успешно добавлен в корзину");
+    }
+    )})
+})
