@@ -89,10 +89,16 @@ async def add_to_cart():
     quantity = data.get('quantity', 1)  # Читаем quantity
     
     # Теперь вызываем вашу функцию для добавления товара в корзину
-    add_product = await db_commands.add_product_cart(user_id, product_id, product_name, product_image, product_price, quantity)
+    try:
+        await db_commands.add_product_cart(
+            user_id, product_id, product_name, product_image, product_price, quantity
+        )
+        return jsonify({'success': True, 'message': 'Product added to cart'}), 200
+    except Exception as e:
+        print("Database Error:", e)  # Debugging
+        return jsonify({'success': False, 'message': 'Database error occurred'}), 500
+
     
-    # Возвращаем ответ клиенту
-    return jsonify({'success': True, 'message': 'Product added to cart'}), 200
 
 if __name__ == "__main__":
     app.run(debug=True)
