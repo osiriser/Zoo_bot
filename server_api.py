@@ -78,7 +78,7 @@ async def fetch_product(product_id):
         return jsonify(product), 200
     return jsonify({"error": "Product not found"}), 404
 
-@app.route('/api/add-to-cart', methods=['POST'])
+@app.route('https://appminimall.xyz/api/add-to-cart', methods=['POST'])
 async def add_to_cart():
     data = request.json  # Используем JSON вместо form data
     user_id = data.get('user_id')
