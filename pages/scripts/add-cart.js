@@ -1,4 +1,4 @@
-document.querySelector('.add-to-cart-button').addEventListener('click', () => {
+document.getElementById("add-to-cart").addEventListener("click", function() {
     const productData = JSON.parse(localStorage.getItem('productData'));
     console.log("Product Data from localStorage:", productData);
     
@@ -16,6 +16,14 @@ document.querySelector('.add-to-cart-button').addEventListener('click', () => {
     console.log("User ID:", userId);
     console.log("Product Price:", productPrice);
 
+    // const data = new URLSearchParams({
+    //     product_id: productId,
+    //     product_name: productName,
+    //     product_image: productImage,
+    //     user_id: userId,
+    //     product_price: productPrice,
+    //     quantity: quantity
+    //     });
     const data = {
         product_id: productId,
         product_name: productName,

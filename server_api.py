@@ -78,8 +78,8 @@ async def fetch_product(product_id):
         return jsonify(product), 200
     return jsonify({"error": "Product not found"}), 404
 
-@app.route('https://appminimall.xyz/api/add-to-cart', methods=['POST'])
-async def add_to_cart():
+@app.route('/api/add-to-cart', methods=['POST'])
+async def add_to_cart_func():
     data = request.json  # Используем JSON вместо form data
     user_id = data.get('user_id')
     product_id = data.get('product_id')
@@ -88,6 +88,8 @@ async def add_to_cart():
     product_price = data.get('product_price')
     quantity = data.get('quantity', 1)  # Читаем quantity
     
+    user_id = request.form.get('user_id')
+    points = request.form.get('points')
     # Теперь вызываем вашу функцию для добавления товара в корзину
     try:
         await db_commands.add_product_cart(
