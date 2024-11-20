@@ -33,7 +33,7 @@ document.getElementById("add-to-cart").addEventListener("click", function() {
         quantity: quantity
     };
 
-    fetch('https://appminimall.xyz/api/add-to-cart', {
+    fetch(`https://appminimall.xyz/api/add-to-cart`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
