@@ -5,7 +5,7 @@ window.onload = function() {
 
 // Функция для загрузки категорий
 function loadCategories() {
-    fetch("/api/categories")
+    fetch(`/api/categories`)
         .then(response => response.json())
         .then(categories => {
             displayItems(categories, "category");
