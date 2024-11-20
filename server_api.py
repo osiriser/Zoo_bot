@@ -79,24 +79,28 @@ async def fetch_product(product_id):
     return jsonify({"error": "Product not found"}), 404
 
 @app.route('/api/add-to-cart', methods=['POST'])
-async def add_to_cart():
-    # data = request.json
-    # user_id = data['user_id']
-    # product_id = data['product_id']
-    # product_name = data['product_name']
-    # product_image = data['product_image']
-    # product_price = data['product_price']
-    # quantity = data.get('quantity', 1)  # default quantity is 1
+async def add_to_cart_func():
+    data = request.json  # Используем JSON вместо form data
+    user_id = data.get('user_id')
+    product_id = data.get('product_id')
+    product_name = data.get('product_name')
+    product_image = data.get('product_image')
+    product_price = data.get('product_price')
+    quantity = data.get('quantity', 1)  # Читаем quantity
+    
     user_id = request.form.get('user_id')
-    product_id = request.form.get('product_id')
-    product_name = request.form.get('product_name')
-    product_image = request.form.get('product_image')
-    product_price = request.form.get('product_price')
-    quantity = request.form.get('product_image', 1)
-    add_product = await db_commands.add_product_cart(user_id, product_id, product_name, product_image, product_price, quantity)
+    points = request.form.get('points')
+    # Теперь вызываем вашу функцию для добавления товара в корзину
+    try:
+        await db_commands.add_product_cart(
+            user_id, product_id, product_name, product_image, product_price, quantity
+        )
+        return jsonify({'success': True, 'message': 'Product added to cart'}), 200
+    except Exception as e:
+        print("Database Error:", e)  # Debugging
+        return jsonify({'success': False, 'message': 'Database error occurred'}), 500
 
-    if add_product:
-        return jsonify({'success': True})
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
