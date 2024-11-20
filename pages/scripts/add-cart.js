@@ -33,27 +33,9 @@ document.getElementById("add-to-cart").addEventListener("click", function() {
         quantity: quantity
     };
 
-    fetch('https://appminimall.xyz/api/add-to-cart', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(jsondata => {
-        if (jsondata.success) {
-            console.log("Product successfully added to cart");
-        } else {
-            console.log("Failed to add product to cart:", jsondata);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
+    fetch('api/add-to-cart', { method: 'post', body: data }).then(fetcheddata => {
+    fetcheddata.json().then(jsondata => {
+        if(jsondata.success) console.log("товар успешно добавлен в корзину");
+    }
+    )})
+})
