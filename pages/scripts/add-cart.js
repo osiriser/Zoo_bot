@@ -33,9 +33,28 @@ document.getElementById("add-to-cart").addEventListener("click", function() {
         quantity: quantity
     };
 
-    fetch('https://appminimall.xyz/api/add-to-cart', { method: 'post', body: data }).then(fetcheddata => {
-    fetcheddata.json().then(jsondata => {
-        if(jsondata.success) console.log("товар успешно добавлен в корзину");
-    }
-    )})
+    fetch('https://appminimall.xyz/api/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data) // Преобразуйте объект `data` в JSON
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // Попробуйте разобрать JSON только после проверки статуса
+    })
+    .then(jsondata => {
+        if (jsondata.success) {
+            console.log("Товар успешно добавлен в корзину");
+        } else {
+            console.log("Не удалось добавить товар в корзину:", jsondata);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
 })

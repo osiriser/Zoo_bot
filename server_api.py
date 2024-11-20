@@ -81,6 +81,11 @@ async def fetch_product(product_id):
 @app.route('/api/add-to-cart', methods=['POST'])
 async def add_to_cart_func():
     data = request.json  # Используем JSON вместо form data
+    if not data:
+        return jsonify({'success': False, 'message': 'No data received or invalid JSON'}), 400
+    
+    print("Received data:", data)  # Debugging
+    
     user_id = data.get('user_id')
     product_id = data.get('product_id')
     product_name = data.get('product_name')
@@ -88,9 +93,6 @@ async def add_to_cart_func():
     product_price = data.get('product_price')
     quantity = data.get('quantity', 1)  # Читаем quantity
     
-    user_id = request.form.get('user_id')
-    points = request.form.get('points')
-    # Теперь вызываем вашу функцию для добавления товара в корзину
     try:
         await db_commands.add_product_cart(
             user_id, product_id, product_name, product_image, product_price, quantity
@@ -99,7 +101,6 @@ async def add_to_cart_func():
     except Exception as e:
         print("Database Error:", e)  # Debugging
         return jsonify({'success': False, 'message': 'Database error occurred'}), 500
-
     
 
 if __name__ == "__main__":
