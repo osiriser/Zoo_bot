@@ -6,6 +6,7 @@
     <title>Product Page</title>
     <link rel="stylesheet" href="../css_style/flow_card.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="scripts/change_quantity.js"></script>
 </head>
 <body>
     <div class="product-page" id="product-container">
@@ -19,9 +20,9 @@
         <h2 class="product-price" id="product-price"></h2>
         <section class="product-description" id="product-description"></section>
         <div class="button-container">
-            <button class="back-button" onclick="goBack()">Back to Menu</button>
-            <button class="add-to-cart-button" id="add-to-cart">Add to Cart</button>
             <script src="scripts/add-cart.js"></script>
+            <button class="back-button" onclick="goBack()">Back to Menu</button>
+            <button class="add-to-cart-button" id="add-to-cart" onclick="addProductCart()">Add to Cart</button>
         </div>
     </div>
     <script>

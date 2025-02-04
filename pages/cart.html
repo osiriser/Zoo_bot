@@ -3,76 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
-    <link rel="stylesheet" href="../css_style/cart.css"> <!-- Подключение стилей -->
+    <title>Cart</title>
+    <link rel="stylesheet" href="../css_style/cart.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
+    <input type="hidden" id="user_id" value="">
     <div class="order-row">
-        <span class="center-text">Pet shop</span>
-        <!-- <img src="../icons/101Roze/1-jpg.jpg" class="img"> -->
-    </div>
-    <div class="order-cont">
-        <div class="row-order">
-            <img src="../icons/dog-icon.png" class="img-cont">
-            <div class="inf-col-order">
-                <div class="name-text">Dog toy</div>
-                <div class="inf-order-row">
-                    <div class="inf-text-m">-</div>
-                    <span class="inf-text">1</span>
-                    <div class="inf-text-p">+</div>
-                    <div class="bonus-container">
-                        <div class="bonus-box">                <!-- Фиолетовый контейнер -->
-                            <img src="../icons/ruble.png" alt="Бонусы" class="bonus-icon">
-                            <span class="bonus-value">0</span> <!-- Значение бонусов -->
-                        </div>
-                    </div>
-                    <div class="bonus-text">
-                        23 $
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <span class="center-text">Pet Shop</span>
     </div>
 
+    <!-- Контейнер для товаров -->
+    <div id="cart-items" class="order-cont">
+        <!-- Здесь будут динамически добавляться товары -->
     </div>
+
     <hr style="border: 1px solid rgb(244, 211, 211); width: 98%; margin: 20px auto;">
+
+    <!-- Итоговые суммы -->
     <div class="sum-row">
-        <span style="font-size: 20px">Amount</span>
-        <span style="font-size: 20px">23$</span>
+        <span style="font-size: 20px;">Amount</span>
+        <span id="amount" style="font-size: 20px;">0$</span>
     </div>
     <div class="sum-row">
-        <span style="font-size: 20px">Сommission</span>
-        <span style="font-size: 20px">3$</span>
+        <span style="font-size: 20px;">Commission</span>
+        <span id="commission" style="font-size: 20px;">0$</span>
     </div>
     <div class="sum-row">
         <span style="font-size: 24px; font-weight: bold;">Total</span>
-        <span style="font-size: 24px; font-weight: bold;">26$</span>
+        <span id="total" style="font-size: 24px; font-weight: bold;">0$</span>
     </div>
+
     <div class="sum-row">
-        <span style="font-size: 20px;">Bonuses</span>
-        <div class="bonus-container">
-            <div class="bonus-box">                <!-- Фиолетовый контейнер -->
-                <img src="../icons/ruble.png" alt="Бонусы" class="bonus-icon">
-                <span class="bonus-value">0</span> <!-- Значение бонусов -->
-            </div>
-        </div>
+        <a href="cart_two.html" class="save-button">Continue</a>
     </div>
-    <div class="sum-row">
-        <a href="cart_two.html" class="save-button">
-            Continue
-        </a>
-
-    </div>
-
-
-</div>
-
-
-
-
-    
-    <!-- Фиксированное меню -->
     <div class="bottom-menu">
         <a href="clicker.html"><img src="../icons/house.png" class="menu-icon" alt="Home"></a>
         <a href="tasks.html"><img src="../icons/tasks-icon.webp" class="tasks-icon" alt="Tasks"></a>
@@ -81,6 +45,8 @@
         <a href="orders.html"><img src="../icons/task.png" class="menu-icon" alt="Orders"></a>
         <a href="profile.html"><img src="../icons/user.png" class="menu-icon" alt="Profile"></a>
     </div>
-
+    <!-- Перемещаем скрипты в конец -->
+    <script src="scripts/user_id.js"></script>
+    <script src="scripts/get-cart.js"></script>
 </body>
 </html>

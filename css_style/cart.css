@@ -73,18 +73,20 @@ a {
 }
 
 .img-cont{
-    width: 20%;
-    height: auto;
+    width: 40%;
+    height: 60%;
     border-radius: 20px;
 }
 
-.row-order{
+.row-order {
     display: flex;
     gap: 10px;
     padding-left: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
+    position: relative; /* Устанавливаем относительное позиционирование */
 }
+
 
 .inf-col-order{
     display: flex;
@@ -123,8 +125,8 @@ a {
     font-weight: bold;
     line-height: 30px; /* Задаем высоту строки равную размеру шрифта */
     display: flex;
-    align-items: center; /* Вертикальное выравнивание внутри контейнера */
-    justify-content: center;
+    align-items: right; /* Вертикальное выравнивание внутри контейнера */
+    justify-content: right;
     height: 30px; /* Фиксируем высоту для выравнивания с другими элементами */
     margin-bottom: 3px;
 }
@@ -350,4 +352,54 @@ h2{
     display: inline-block; /* Убедитесь, что кнопка ведет себя как блочный элемент */
 
 
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+
+
+.row-order {
+    display: flex; /* Гибкий контейнер для горизонтального расположения */
+    align-items: center; /* Центрирование по вертикали */
+    position: relative; /* Блок товара становится контейнером для абсолютных элементов */
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Разделитель */
+}
+
+.delete-btn {
+    position: absolute; /* Позиционируется внутри блока товара */
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    background-color: #ff4d4f; /* Красный фон */
+    border: none; /* Без границ */
+    color: white; /* Белый текст */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель */
+    border-radius: 50%; /* Круглая форма */
+    width: 24px; /* Ширина кнопки */
+    height: 24px; /* Высота кнопки */
+    text-align: center; /* Центрирование текста */
+    line-height: 24px; /* Вертикальное выравнивание текста */
+}
+
+.delete-btn:hover {
+    background-color: #e60000; /* Более темный красный при наведении */
 }

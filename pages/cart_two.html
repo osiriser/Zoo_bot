@@ -3,159 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 1</title>
+    <title>Placing an Order</title>
     <link rel="stylesheet" href="../css_style/cart_two.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <!-- Подключение стилей -->
+    <script src="scripts/get_cart_two.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    
 </head>
 <body>
+    <!-- Заголовок страницы -->
     <div style="text-align: center; align-items: center; padding-bottom: 10px; padding-top: 5px;">Placing an order</div>
-    <span style="text-align: center;">Select delivery type</span>
-    <!-- <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
-    <div class="header-row"> -->
-        <!-- <div class="delivery-container">
-            <div style="font-weight: bold; font-size: 20px; padding-bottom: 5px;">Simple</div>
-            <div style="font-size: 18px;">4 hour</div>
-            <div style="font-size: 18px; padding-bottom: 4px;">30 min - 240 min</div>
-            <div class="sum-cont-row">
-                <div style="font-weight: bold; font-size: 20px;">23$</div>
-                <div style="font-size: 14px;">5 km</div>
-            </div>
-        </div>
-        <div class="delivery-container">
-            <div style="font-weight: bold; font-size: 20px; padding-bottom: 5px;">Fast</div>
-            <div style="font-size: 18px;">2 hour</div>
-            <div style="font-size: 18px; padding-bottom: 4px;">30 min - 120 min</div>
-            <div class="sum-cont-row">
-                <div style="font-weight: bold; font-size: 20px;">23$</div>
-                <div style="font-size: 14px;">10 km</div>
-            </div>
-        </div>
-        <div class="delivery-container">
-            <div style="font-weight: bold; font-size: 20px; padding-bottom: 5px;">Точное время</div>
-            <div style="font-size: 18px;">30 минутный интервал</div>
-            <div style="font-size: 18px; padding-bottom: 4px;">От 30 до 240 минут</div>
-            <div class="sum-cont-row">
-                <div style="font-weight: bold; font-size: 20px;">600 ₽</div>
-                <div style="font-size: 14px;">В пределах МКАД</div>
-            </div>
-        </div> -->
-
-    <!-- </div>
-    <div style="padding-top: 5px;">Чаевые курьеру</div>
-    <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
-    <div class="scroll-container-shop">
-        <div class="scroll-item">
-            <div 
-            class="bonus-text-shop"
-            >0 ₽</div>
-        </div>
-        <div class="scroll-item">
-            <div class="bonus-text-shop">
-                50 ₽
-            </div> 
-        </div>
-        <div class="scroll-item">
-            <div class="bonus-text-shop">
-                100 ₽
-            </div>
-        </div>
-        <div class="scroll-item">
-            <div class="bonus-text-shop">
-                200 ₽
-            </div>
-        </div>
-        <div class="scroll-item">
-            <div class="bonus-text-shop">
-                Другая сумма
-            </div>
-        </div> -->
-
-    </div>
     <div style="padding-top: 10px;">Client</div>
     <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
-    <!-- Переключатель -->
-    <!-- <div class="switch-row">
-        <label for="self-pickup" class="label">Получу сам</label>
-        <input type="checkbox" id="self-pickup" class="switch">
-    </div> -->
-
-    <!-- Поля ввода -->
+    <input type="hidden" id="user_id" value="">
+    <!-- Поля ввода информации клиента -->
     <div class="input-container">
-        <input type="text" placeholder="Contact Name*" class="input-field">
-        <input type="text" placeholder="Mobile number*" class="input-field">
+        <input type="text" id="contact-name" placeholder="Contact Name*" class="input-field" required>
+        <input type="text" id="mobile-number" placeholder="Mobile number*" class="input-field" required>
     </div>
 
-    <!-- Адрес -->
+    <!-- Адрес клиента -->
     <div class="address-section">
         <label class="label">Address</label>
         <hr style="border: 1px solid rgb(211, 202, 202); width: 98%; margin-bottom: 10px;">
-        <input type="text" placeholder="Street, house/apartment/unit*" class="input-field">
+        <input type="text" id="street" placeholder="Street, house/apartment/unit*" class="input-field" required>
 
-        <!-- Подъезд и домофон в строку -->
         <div class="two-columns">
-            <input type="text" placeholder="Country*" class="input-field small">
-            <input type="text" placeholder="Region*" class="input-field small">
-            <input type="text" placeholder="Zip code*" class="input-field small">
+            <input type="text" id="country" placeholder="Country*" class="input-field small" required>
+            <input type="text" id="region" placeholder="Region*" class="input-field small" required>
+            <input type="text" id="zip-code" placeholder="Zip code*" class="input-field small" required>
         </div>
     </div>
-    <!-- <div class="switch-row">
-        <label for="self-pickup" class="label">Узнать адрес получателя</label>
-        <input type="checkbox" id="self-pickup" class="switch">
-    </div> -->
+
+    <!-- Дополнительная информация -->
     <div style="padding-top: 10px;">Extra info</div>
     <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
-    <input type="text" placeholder="Add free text if needed, eg: dont ring the doorbell, leave by the door, etc." class="input-field">
-    <!-- <div class="save-button">Применить</div> -->
+    <input type="text" id="extra-info" placeholder="Add free text if needed, e.g.: don’t ring the doorbell, leave by the door, etc." class="input-field">
+
+    <!-- Информация о бонусах -->
     <div class="switch-row">
-        <div>Бонусы</div>
+        <div>Bonuses</div>
         <div class="bonus-row">
-            <div>У вас</div>
+            <div>You have</div>
             <div class="bonus-container">
-                <div class="bonus-box">                <!-- Фиолетовый контейнер -->
-                    <img src="../icons/ruble.png" alt="Бонусы" class="bonus-icon">
-                    <span class="bonus-value">0</span> <!-- Значение бонусов -->
+                <div class="bonus-box">
+                    <img src="../icons/ruble.png" alt="Bonuses" class="bonus-icon">
+                    <span class="bonus-value" id="bonus-value">0</span>
                 </div>
             </div>
             <div>= 0 ₽</div>
-
         </div>
     </div>
     <hr style="border: 1px solid rgb(211, 202, 202); width: 98%;">
 
-    <!-- <div class="switch-row">
-        <label for="self-pickup" class="label">Получу сам</label>
-        <input type="checkbox" id="self-pickup" class="switch">
-    </div> -->
+    <!-- Суммы заказа -->
     <div class="sum-row">
         <span style="font-size: 24px; font-weight: bold;">Total</span>
-        <span style="font-size: 24px; font-weight: bold;">26$</span>
+        <span style="font-size: 24px; font-weight: bold;" id="total-price">26$</span>
     </div>
-
     <div class="sum-row">
         <span style="font-size: 20px">Amount</span>
-        <span style="font-size: 20px">23$</span>
+        <span style="font-size: 20px" id="amount">23$</span>
     </div>
     <div class="sum-row">
-        <span style="font-size: 20px">Сommission</span>
-        <span style="font-size: 20px">3$</span>
+        <span style="font-size: 20px">Commission</span>
+        <span style="font-size: 20px" id="commission">3$</span>
     </div>
+
+    <!-- Кнопка отправки данных -->
     <div class="sum-row">
-        <span style="font-size: 20px;">Bonuses</span>
-        <div class="bonus-container">
-            <div class="bonus-box">                <!-- Фиолетовый контейнер -->
-                <img src="../icons/ruble.png" alt="Бонусы" class="bonus-icon">
-                <span class="bonus-value">0</span> <!-- Значение бонусов -->
-            </div>
-        </div>
-    </div>
-    <div class="sum-row">
-        <a href="profile.html" class="continue-button-class" id="continue-button">
-            Continue
-        </a>
+        <button class="continue-button-class" id="save-button" onclick="SendOrder()">Save Information</button>
+        <button class="continue-button-class" id="checkout-button" onclick="Checkout()">Pay with Stripe</button>
 
     </div>
-    
-    <script src="scripts/button-continue.js"></script>
+
+    <script src="scripts/user_id.js"></script>
 </body>
 </html>

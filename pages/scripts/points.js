@@ -1,7 +1,6 @@
 let points = 0;
 let savedPoints = 0; // Очки, которые были подгружены из базы данных
 
-
 window.onload = function() {
     fetch(`/api/get-user-points?user_id=${userId}`)
         .then(response => response.json())

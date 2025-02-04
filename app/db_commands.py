@@ -55,71 +55,7 @@ async def get_user_points(telegram_id):
     points = await conn.fetchval("SELECT number_points FROM users WHERE tg_user_id = $1", telegram_id)
     await conn.close()
     return points
-
-async def update_user_points(telegram_id, points):
-    conn = await connect()
-    await conn.execute("UPDATE users SET number_points = $1 WHERE tg_user_id = $2", points, telegram_id)
-    await conn.close()
-
-
-async def complete_task(telegram_id, task_id):
-    conn = await connect()
-    query = f"UPDATE users SET {task_id} = TRUE WHERE tg_user_id = $1"
-    await conn.execute(query, telegram_id)
-    await conn.execute("""
-        UPDATE users
-        SET number_points = number_points + 1000
-        WHERE tg_user_id = $1
-    """, telegram_id)
-    await conn.close()
-
-async def get_tasks_status(telegram_id):
-    conn = await connect()
     
-    # Выполняем запрос к базе данных, чтобы получить состояние задач пользователя
-    query = """
-    SELECT task1, task2, task3, task4
-    FROM users
-    WHERE tg_user_id = $1
-    """
-    
-    row = await conn.fetchrow(query, telegram_id)
-    
-    # Закрываем соединение
-    await conn.close()
-    
-    # Формируем объект с флагами выполнения задач
-    tasks_status = {
-        "task1": row['task1'],
-        "task2": row['task2'],
-        "task3": row['task3'],
-        "task4": row['task4']
-    }
-    
-    return tasks_status
-
-async def get_categories():
-    conn = await connect()
-    rows = await conn.fetch("SELECT id, name, image_path FROM categories")
-    await conn.close()
-    categories = [{"id": row["id"], "name": row["name"], "image_path": row["image_path"]} for row in rows]
-    return categories
-
-async def get_subcategories(category_id):
-    conn = await connect()
-    rows = await conn.fetch("SELECT id, name, image_path FROM subcategories WHERE category_id = $1", int(category_id))
-    await conn.close()
-    subcategories = [{"id": row["id"], "name": row["name"], "image_path": row["image_path"]} for row in rows]
-    return subcategories
-
-async def get_products(subcategory_id):
-    conn = await connect()
-    rows = await conn.fetch("SELECT id, name, image_path FROM products WHERE subcategory_id = $1", int(subcategory_id))
-    await conn.close()
-    products = [{"id": row["id"], "name": row["name"], "image_path": row["image_path"]} for row in rows]
-    return products
-
-
 async def add_category(name, image_path):
     conn = await connect()
     query = "INSERT INTO categories (name, image_path) VALUES ($1, $2)"
@@ -154,33 +90,3 @@ async def get_subcategories_without_path():
     await conn.close()
     subcategories = [{"id": row["id"], "name": row["name"]} for row in rows]
     return subcategories
-
-
-async def get_product(product_id):
-    conn = await connect()
-    row = await conn.fetchrow("SELECT id, name, image_path, image_path2, image_path3, description, price FROM products WHERE id = $1", int(product_id))
-    await conn.close()
-    
-    if row:
-        product = {
-            "id": row["id"],
-            "name": row["name"],
-            "image_path": row["image_path"],
-            "image_path2": row["image_path2"],
-            "image_path3": row["image_path3"],
-            "description": row["description"],
-            "price": row["price"]
-        }
-        return product
-    return None
-
-
-async def add_product_cart(user_id, product_id, product_name, product_image, product_price, quantity):
-    conn = await connect()
-    await conn.execute("""
-            INSERT INTO cart (user_id, product_id, product_name, product_image, product_price, quantity)
-            VALUES ($1, $2, $3, $4, $5, $6)
-        """, user_id, product_id, product_name, product_image, product_price, quantity)
-    
-    conn.close()
-    return True

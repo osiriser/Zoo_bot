@@ -12,7 +12,7 @@ async def create_cart():
                             DROP TABLE IF EXISTS cart;
                             CREATE TABLE cart (
                             id SERIAL PRIMARY KEY,
-                            user_id INTEGER NOT NULL,
+                            user_id BIGINT NOT NULL,
                             product_id INTEGER NOT NULL,
                             product_price INTEGER NOT NULL,
                             product_name VARCHAR(255) NOT NULL,
