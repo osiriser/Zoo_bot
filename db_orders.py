@@ -12,7 +12,7 @@ async def create_table():
     DROP TABLE IF EXISTS orders;
     CREATE TABLE orders (
         order_id SERIAL PRIMARY KEY,
-        user_id INT NOT NULL,
+        user_id BIGINT NOT NULL,
         total NUMERIC(10, 2) NOT NULL,
         payment_method VARCHAR(50) NOT NULL,
         status VARCHAR(20) NOT NULL,

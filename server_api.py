@@ -211,15 +211,16 @@ def place_order():
             return jsonify({"success": False, "message": "Корзина пуста"}), 402
 
         # Рассчитываем сумму и комиссию
-        total_amount = sum(item['product_price'] * item['quantity'] for item in cart_items)
+        #total_amount = sum(item['product_price'] * item['quantity'] for item in cart_items)
+        total_amount = sum(int(item[3]) * int(item[4]) for item in cart_items)  # item[0] - price, item[1] - quantity
         commission = round(total_amount * 0.1, 2)
         total = total_amount + commission
 
         # Сохраняем информацию о пользователе
-        save_user_info(user_id, mobile_number, street, country, region, zip_code, extra_info)
+        db_site.save_user_info(user_id, mobile_number, street, country, region, zip_code, extra_info)
 
         # Создаем заказ
-        order_id = create_order(
+        order_id = db_site.create_order(
             user_id=int(user_id),
             contact_name=contact_name,
             mobile_number=mobile_number,
@@ -228,11 +229,12 @@ def place_order():
             region=region,
             zip_code=zip_code,
             extra_info=extra_info,
+            payment_method="undefined",
             total=total
         )
 
         # Добавляем товары в заказ
-        add_order_items(order_id, cart_items)
+        db_site.add_order_items(order_id, cart_items)
 
         return jsonify({"success": True, "order_id": order_id})
 
